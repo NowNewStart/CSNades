@@ -110,8 +110,8 @@ error_reporting(E_ERROR | E_WARNING | E_PARSE);
     <div class="container" style="padding-top: 40px;">
     <?php
     	if($action == "Search") {
-    		$map = $_POST['map'];
-    		$popspot = $_POST['popspot'];
+    		$map = $sql->real_escape_string(isset($_POST['map']) ? $_POST['map'] : false);
+    		$popspot = $sql->real_escape_string(isset($_POST['popspot']) ? $_POST['popspot'] : false);
     			echo "<div class='row'>"; 
 
     			if(empty($popspot)) {
@@ -122,7 +122,7 @@ error_reporting(E_ERROR | E_WARNING | E_PARSE);
     			$header = "<h1>Nades and Smokes on the Map '".$map."' and the Pop Spot '".$popspot."'</h1><hr>";
     			}
 
-    			if(empty($map) || empty($popspot)) {
+    			if(empty($map) AND empty($popspot)) {
     			$q_map = $sql->query("SELECT * FROM nades ORDER BY nadeID DESC");  	
     			$header = "<h1>All Listed Smokes</h1><hr>";
     			}
@@ -221,8 +221,8 @@ error_reporting(E_ERROR | E_WARNING | E_PARSE);
     			<hr>
     			<?php
     			if($action == "Perform") {
-    			$username = isset($_POST['username']) ? $_POST['username'] : false;
-    			$password = isset($_POST['password']) ? $_POST['password'] : false;
+    			$username = $sql->real_escape_string(isset($_POST['username']) ? $_POST['username'] : false);
+    			$password = $sql->real_escape_string(isset($_POST['password']) ? $_POST['password'] : false);
     			if(empty($username) || empty($password)) {
     				echo "<div class='alert alert-danger'>You have to enter an username and a password.</div>";
     			} else {
@@ -283,10 +283,10 @@ error_reporting(E_ERROR | E_WARNING | E_PARSE);
 
                     <?php
                     if($action == "Add") {
-                        $nadeTitle     = isset($_POST['nadeTitle'])     ? $_POST['nadeTitle']     : false;
-                        $nadeMap       = isset($_POST['nadeMap'])       ? $_POST['nadeMap']       : false;
-                        $nadePopSpot   = isset($_POST['nadePopSpot'])   ? $_POST['nadePopSpot']   : false;
-                        $nadeImgurLink = isset($_POST['nadeImgurLink']) ? $_POST['nadeImgurLink'] : false;   
+                        $nadeTitle     = $sql->real_escape_string(isset($_POST['nadeTitle'])     ? $_POST['nadeTitle']     : false);
+                        $nadeMap       = $sql->real_escape_string(isset($_POST['nadeMap'])       ? $_POST['nadeMap']       : false);
+                        $nadePopSpot   = $sql->real_escape_string(isset($_POST['nadePopSpot'])   ? $_POST['nadePopSpot']   : false);
+                        $nadeImgurLink = $sql->real_escape_string(isset($_POST['nadeImgurLink']) ? $_POST['nadeImgurLink'] : false);   
                         if(empty($nadeTitle) || empty($nadeMap) || empty($nadePopSpot) || empty($nadeImgurLink)) {
                             echo "<div class='alert alert-danger'>You have to complete the form.</div>";
                         } else {
@@ -354,7 +354,7 @@ error_reporting(E_ERROR | E_WARNING | E_PARSE);
                     echo "<noscript>You don't have JS activated. <a href='index.php'>Click here to get forwarded</a></noscript>"; 
                 }
             } elseif($page == "Maps") {
-                $map = isset($_GET['map']) ? $_GET['map'] : false;
+                $map = $sql->real_escape_string(isset($_GET['map']) ? $_GET['map'] : false);
                	switch($map) {
                		default:
                			$map_check = "";
@@ -395,7 +395,7 @@ error_reporting(E_ERROR | E_WARNING | E_PARSE);
                	}
 
     			if(empty($map)) {
-    			$q_map = $sql->query("SELECT * FROM nades ORDER BY nadeID DESC");  	
+    			$q_map = $sql->real_escape_string($sql->query("SELECT * FROM nades ORDER BY nadeID DESC"));  	
     			$header = "<h1>All Listed Smokes</h1><hr>";
     			} else {               	
                	$q_map = $sql->query("SELECT * FROM nades WHERE nadeMap='".$map_check."' ORDER BY nadeID DESC");  
