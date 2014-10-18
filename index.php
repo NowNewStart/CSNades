@@ -35,6 +35,17 @@ error_reporting(E_ERROR | E_WARNING | E_PARSE);
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 
+    <!-- Google Analystics -->
+    <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-51942617-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
 </head>
 
 <body>
@@ -376,6 +387,7 @@ error_reporting(E_ERROR | E_WARNING | E_PARSE);
                		break;
                		case "Overpass":
                			$map_check = "Overpass";
+               		break;
                		case "Cache":
                			$map_check = "Cache";
                		break;
