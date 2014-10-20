@@ -19,13 +19,13 @@ error_reporting(E_ERROR | E_WARNING | E_PARSE);
     <title>CS:GO Smokes and Nades</title>
 
     <!-- Bootstrap Core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom CSS -->
     <link href="css/landing-page.css" rel="stylesheet">
 
     <!-- Custom Fonts -->
-    <link href="font-awesome-4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href="http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -61,7 +61,7 @@ error_reporting(E_ERROR | E_WARNING | E_PARSE);
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.php">CS:GO Smokes and Nades</a>
+                <a class="navbar-brand" href="index.php">CSNades</a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -99,7 +99,7 @@ error_reporting(E_ERROR | E_WARNING | E_PARSE);
             <div class="row">
                 <div class="col-lg-12">
                     <div class="intro-message">
-                        <h1>Counter-Strike: Global Offensive</h1>
+                        <h1>CSNades</h1>
                         <h3>Smokes and Nades for competitive scene</h3>
                         <hr class="intro-divider">
                         <ul class="list-inline intro-social-buttons">
@@ -155,25 +155,25 @@ error_reporting(E_ERROR | E_WARNING | E_PARSE);
     			<div class="row">
     				<div class="col-lg-3">
     				    <a href="index.php?page=Maps&map=Dust2">
-    				    <img src="img/maps/dust2.png" alt="Dust 2" class="img-responsive hidden-xs hidden-sm"/>
+    				    <img src="http://i.imgur.com/LZLDJK5.png" alt="Dust 2" class="img-responsive hidden-xs hidden-sm"/>
     				    <h3>Dust 2</h3>
     				    </a>
     				</div>
     				<div class="col-lg-3">
     					<a href="index.php?page=Maps&map=Nuke">
-    				    <img src="img/maps/nuke.jpg" alt="Nuke" class="img-responsive hidden-xs hidden-sm" />
+    				    <img src="http://i.imgur.com/rAilbaT.jpg" alt="Nuke" class="img-responsive hidden-xs hidden-sm" />
     				    <h3>Nuke</h3>
     				    </a>
     				</div>
     				<div class="col-lg-3">
     					<a href="index.php?page=Maps&map=Mirage">
-                        <img src="img/maps/mirage.png" alt="Mirage" class="img-responsive hidden-xs hidden-sm" />
+                        <img src="http://i.imgur.com/0VrFWc1.png" alt="Mirage" class="img-responsive hidden-xs hidden-sm" />
                         <h3>Mirage</h3>
                         </a>
     				</div>
     				<div class="col-lg-3">
     				<a href="index.php?page=Maps&map=Inferno">
-    				<img src="img/maps/inferno.png" alt="Inferno" class="img-responsive hidden-xs hidden-sm" />
+    				<img src="http://i.imgur.com/PqhA3om.png" alt="Inferno" class="img-responsive hidden-xs hidden-sm" />
     				<h3>Inferno</h3>
     				</a>
     				</div>
@@ -181,25 +181,25 @@ error_reporting(E_ERROR | E_WARNING | E_PARSE);
                 <div class="row">
     				<div class="col-lg-3">
     					<a href="index.php?page=Maps&map=Cobble">
-                        <img src="img/maps/cobble.png" alt="Cobblestone" class="img-responsive hidden-xs hidden-sm" />
+                        <img src="http://i.imgur.com/jGOhgDq.png" alt="Cobblestone" class="img-responsive hidden-xs hidden-sm" />
                         <h3>Cobblestone</h3>
                         </a>
     				</div>                
                     <div class="col-lg-3">
                     	<a href="index.php?page=Maps&map=Overpass">
-                        <img src="img/maps/overpass.png" alt="Overpass" class="img-responsive hidden-xs hidden-sm" />
+                        <img src="http://i.imgur.com/nZBVBLR.png" alt="Overpass" class="img-responsive hidden-xs hidden-sm" />
                         <h3>Overpass</h3>
                        	</a>
                     </div>
                     <div class="col-lg-3">
                     	<a href="index.php?page=Maps&map=Cache">
-                        <img src="img/maps/cache.png" alt="Cache" class="img-responsive hidden-xs hidden-sm" />
+                        <img src="http://i.imgur.com/Im0kNDY.png" alt="Cache" class="img-responsive hidden-xs hidden-sm" />
                         <h3>Cache</h3>
                         </a>
                     </div>
                     <div class="col-lg-3">
                     	<a href="index.php?page=Maps&map=Train">
-                        <img src="img/maps/train.png" alt="Train" class="img-responsive hidden-xs hidden-sm" />
+                        <img src="http://i.imgur.com/z2xGdDI.png" alt="Train" class="img-responsive hidden-xs hidden-sm" />
                         <h3>Train</h3>
                         </a>
                     </div>
@@ -207,19 +207,19 @@ error_reporting(E_ERROR | E_WARNING | E_PARSE);
                 <div class="row">
                     <div class="col-lg-3">
                     	<a href="index.php?page=Maps&map=OldSeason">
-                        <img src="img/maps/season_old.jpg" alt="Old Season" class="img-responsive hidden-xs hidden-sm" />
+                        <img src="http://i.imgur.com/zqaGDDe.jpg" alt="Old Season" class="img-responsive hidden-xs hidden-sm" />
                         <h3>Old Season</h3>
                         </a>
                     </div>                
                     <div class="col-lg-3">
                     	<a href="index.php?page=Maps&map=NewSeason">
-                        <img src="img/maps/season_new.jpg" alt="New Season" class="img-responsive hidden-xs hidden-sm" />
+                        <img src="http://i.imgur.com/J3PEqqF.jpg" alt="New Season" class="img-responsive hidden-xs hidden-sm" />
                         <h3>New Season</h3>
                         </a>
                     </div>
                     <div class="col-lg-3">
                     	<a href="index.php?page=Maps&map=Sparity">
-                        <img src="img/maps/sparity.jpg" alt="Sparity" class="img-responsive hidden-xs hidden-sm" />
+                        <img src="http://i.imgur.com/oIOMBpt.jpg" alt="Sparity" class="img-responsive hidden-xs hidden-sm" />
                         <h3>Sparity</h3>
                         </a>
                     </div>
@@ -523,10 +523,10 @@ error_reporting(E_ERROR | E_WARNING | E_PARSE);
 </div>
 
     <!-- jQuery Version 1.11.0 -->
-    <script src="js/jquery-1.11.0.js"></script>
+    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
-    <script src="js/bootstrap.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 
 </body>
 
