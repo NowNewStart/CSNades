@@ -7,7 +7,7 @@ class MapsController extends BaseController {
         $maps = Map::all();
 
         $viewData = array(
-            'maps' => $maps,
+            'maps'    => $maps->sortBy('name'),
             'heading' => 'Maps',
         );
 

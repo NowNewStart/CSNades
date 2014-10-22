@@ -9,6 +9,6 @@
                     <h3>{{ $map->name }}</h3>
                 </a>
             </div>
-        @endforeach;
+        @endforeach
         </div>
 @stop
