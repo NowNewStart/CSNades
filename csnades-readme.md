@@ -2,7 +2,10 @@
 * Install Composer
 * Clone this repo
 * Browse to the root directory of the project (the one this file resides in)
-* Run composer install to install all the laravel dependencies
+* Run this code to install all the laravel dependencies:
+````
+composer install
+````
 * Set the Document Root to the public directory of the application, eg: /path/to/csnades-website/public
 
 # Environment Configuration
