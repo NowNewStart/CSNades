@@ -22,6 +22,7 @@ class CreateNadesTable extends Migration {
             $table->string('imgur');
             $table->string('youtube');
             $table->boolean('is_working');
+            $table->boolean('is_approved');
             $table->timestamps();
         });
 	}
