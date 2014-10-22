@@ -2,7 +2,7 @@
 * Install Composer
 * Clone this repo
 * Browse to the root directory of the project (the one this file resides in)
-* Run this code to install all the laravel dependencies:
+* Run this command to install all the laravel dependencies:
 ````
 composer install
 ````
