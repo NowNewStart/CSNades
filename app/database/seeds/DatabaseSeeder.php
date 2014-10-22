@@ -22,16 +22,14 @@ class UserTableSeeder extends Seeder {
     {
         DB::table('users')->delete();
 
-        $chars = array('a', 'b', 'c','d', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't');
+        $users = array(
+            'username' => 'FatBoyXPC',
+            'password' => Hash::make('password'),
+            'email'    => 'fatboyxpc@gmail.com',
+            'is_staff' => true,
+        );
 
-        foreach ($chars as $key => $value) {
-            User::create(array(
-                'username' => $value,
-                'email'    => "$value@$value.com",
-                'password' => $value,
-                'is_staff' => rand(0,1),
-            ));
-        }
+        User::create($user);
     }
 }
 
