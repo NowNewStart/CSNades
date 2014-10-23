@@ -4,10 +4,10 @@ class MapsController extends BaseController {
 
     public function showAllMaps()
     {
-        $maps = Map::all();
+        $maps = Map::all()->sortBy('name');
 
         $viewData = array(
-            'maps'    => $maps->sortBy('name'),
+            'maps'    => $maps,
             'heading' => 'Maps',
         );
 
