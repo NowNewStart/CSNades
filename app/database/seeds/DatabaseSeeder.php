@@ -22,7 +22,7 @@ class UserTableSeeder extends Seeder {
     {
         DB::table('users')->delete();
 
-        $users = array(
+        $user = array(
             'username' => 'FatBoyXPC',
             'password' => Hash::make('password'),
             'email'    => 'fatboyxpc@gmail.com',
