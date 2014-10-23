@@ -52,7 +52,7 @@
                 <div class="col-lg-12">
                     <div class="intro-message">
                         <h1>CSNades</h1>
-                        <h3>Smokes and Nades for competitive scene</h3>
+                        <h3>Smokes and Nades for the competitive scene</h3>
                         <hr class="intro-divider">
                         <ul class="list-inline intro-social-buttons">
                             <li>
