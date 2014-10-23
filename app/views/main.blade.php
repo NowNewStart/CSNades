@@ -130,12 +130,16 @@
                     <h4 class="modal-title" id="meinModalLabel">About</h4>
                 </div>
                 <div class="modal-body">
-                    The <em>Counter-Strike: Global Offensive Nades and Smoke</em> Website is mainly made by <a href="http://steamcommunity.com/id/imnns/">NowNewStart</a> and its contributors.<br>
+                    The <em>Counter-Strike: Global Offensive Nades and Smoke</em> Website is mainly made by <a href="http://steamcommunity.com/id/imnns/">NowNewStart</a>, <a href="http://steamcommunity.com/id/fatboyxpc">FatBoyXPC</a> and contributors.<br>
                     <br>
                     <strong>Staff members who are helping to have all smokes in the system:</strong>
                     <br>
-                    <a href="http://steamcommunity.com/id/imnns/">NowNewStart</a> <br>
-                    <a href="http://steamcommunity.com/profiles/76561198071213385/">falc0n</a><br>
+                    <a href="http://steamcommunity.com/id/imnns/">NowNewStart</a>
+                    <br>
+                    <a href="http://steamcommunity.com/id/fatboyxpc">FatBoyXPC</a>
+                    <br>
+                    <a href="http://steamcommunity.com/profiles/76561198071213385/">falc0n</a>
+                    <br>
                     <br>
                     <strong>Idea by <a href="http://reddit.com/u/gas4u">Gas4U</a></strong>
                     <br>
