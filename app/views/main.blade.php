@@ -6,13 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
     <link href="http://nades.nownewstart.net/css/landing-page.css" rel="stylesheet">
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href="http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
-
-    <title>CS:GO Smokes and Nades</title>
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -20,12 +17,12 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+    
+    <title>CS:GO Smokes and Nades</title>
 </head>
 <body>
-    <!-- Navigation -->
     <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
         <div class="container">
-            <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                     <span class="sr-only">Toggle navigation</span>
@@ -35,7 +32,6 @@
                 </button>
                 <a class="navbar-brand" href="index.php">CSNades</a>
             </div>
-            <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
                     <li>
@@ -69,75 +65,6 @@
         <h1>{{ $heading }}</h1>
         <hr>
         @yield('content')
-        <!-- 
-        <div class="row">
-            <div class="col-lg-3">
-                <a href="index.php?page=Maps&map=Dust2">
-                <img src="img/maps/dust2.png" alt="Dust 2" class="img-responsive hidden-xs hidden-sm"/>
-                <h3>Dust 2</h3>
-                </a>
-            </div>
-            <div class="col-lg-3">
-                <a href="index.php?page=Maps&map=Nuke">
-                <img src="img/maps/nuke.jpg" alt="Nuke" class="img-responsive hidden-xs hidden-sm" />
-                <h3>Nuke</h3>
-                </a>
-            </div>
-            <div class="col-lg-3">
-                <a href="index.php?page=Maps&map=Mirage">
-                <img src="img/maps/mirage.png" alt="Mirage" class="img-responsive hidden-xs hidden-sm" />
-                <h3>Mirage</h3>
-                </a>
-            </div>
-            <div class="col-lg-3">
-            <a href="index.php?page=Maps&map=Inferno">
-            <img src="img/maps/inferno.png" alt="Inferno" class="img-responsive hidden-xs hidden-sm" />
-            <h3>Inferno</h3>
-            </a>
-            </div>
-            <div class="col-lg-3">
-                <a href="index.php?page=Maps&map=Cobble">
-                <img src="img/maps/cobble.png" alt="Cobblestone" class="img-responsive hidden-xs hidden-sm" />
-                <h3>Cobblestone</h3>
-                </a>
-            </div>                
-            <div class="col-lg-3">
-                <a href="index.php?page=Maps&map=Overpass">
-                <img src="img/maps/overpass.png" alt="Overpass" class="img-responsive hidden-xs hidden-sm" />
-                <h3>Overpass</h3>
-                </a>
-            </div>
-            <div class="col-lg-3">
-                <a href="index.php?page=Maps&map=Cache">
-                <img src="img/maps/cache.png" alt="Cache" class="img-responsive hidden-xs hidden-sm" />
-                <h3>Cache</h3>
-                </a>
-            </div>
-            <div class="col-lg-3">
-                <a href="index.php?page=Maps&map=Train">
-                <img src="img/maps/train.png" alt="Train" class="img-responsive hidden-xs hidden-sm" />
-                <h3>Train</h3>
-                </a>
-            </div>
-            <div class="col-lg-3">
-                <a href="index.php?page=Maps&map=OldSeason">
-                <img src="img/maps/season_old.jpg" alt="Old Season" class="img-responsive hidden-xs hidden-sm" />
-                <h3>Old Season</h3>
-                </a>
-            </div>                
-            <div class="col-lg-3">
-                <a href="index.php?page=Maps&map=NewSeason">
-                <img src="img/maps/season_new.jpg" alt="New Season" class="img-responsive hidden-xs hidden-sm" />
-                <h3>New Season</h3>
-                </a>
-            </div>
-            <div class="col-lg-3">
-                <a href="index.php?page=Maps&map=Sparity">
-                <img src="img/maps/sparity.jpg" alt="Sparity" class="img-responsive hidden-xs hidden-sm" />
-                <h3>Sparity</h3>
-                </a>
-            </div> 
-        </div>-->
     </div>
     <footer style="padding-top: 100px;">
         <div class="container" >
@@ -145,11 +72,11 @@
                 <div class="col-lg-12">
                     <ul class="list-inline">
                         <li>
-                            <a href="#home">Home</a>
+                            <a href="/">Home</a>
                         </li>
                         <li class="footer-menu-divider">&sdot;</li>
                         <li>
-                            <a href=""  data-toggle="modal" data-target="#about">About</a>
+                            <a href="#"  data-toggle="modal" data-target="#about">About</a>
                         </li>
                     </ul>
                     <p class="copyright text-muted small">Copyright &copy; 2014 NowNewStart and contributors </p>
@@ -157,7 +84,6 @@
             </div>
         </div>
     </footer>
-    
     <!-- Modals -->
     <div class="modal fade" id="search" tabindex="-1" role="dialog" aria-labelledby="search" aria-hidden="true">
         <div class="modal-dialog">
@@ -196,7 +122,6 @@
             </div>
         </div>
     </div>
-
     <div class="modal fade" id="about" tabindex="-1" role="dialog" aria-labelledby="about" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -223,13 +148,8 @@
             </div>
         </div>
     </div>
-
-    <!-- jQuery Version 1.11.0 -->
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-
-    <!-- Bootstrap Core JavaScript -->
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-    <!-- Google Analystics -->
     <script>
         (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
         (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
