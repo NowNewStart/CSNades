@@ -171,18 +171,10 @@
                         <div class="form-group">
                         <label for="map">Map</label>
                         <select class="form-control" name="map">
-                            <option></option>
-                            <option>Dust 2</option>
-                            <option>Nuke</option>
-                            <option>Mirage</option>
-                            <option>Inferno</option>
-                            <option>Cobblestone</option>
-                            <option>Overpass</option>
-                            <option>Cache</option>
-                            <option>Train</option>
-                            <option>Old Season</option>
-                            <option>New Season</option>
-                            <option>Sparity</option>
+                            <option>Select...</option>
+                            @foreach($maps as $map)
+                            <option value="{{ $map->slug }}">{{ $map->name }}</option>
+                            @endforeach;
                         </select>
                         </div>
                         <div class="form-group">
