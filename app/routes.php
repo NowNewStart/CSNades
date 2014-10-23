@@ -20,5 +20,18 @@ Route::get('env', function(){
     return App::environment();
 });
 
+// Maps
 Route::get('maps/{slug}', 'MapsController@showMap');
+Route::get('maps/add', 'MapsController@showMapForm'); // logged in only
+Route::post('maps/add', 'MapsController@saveMap'); // logged in only
+Route::get('maps/edit/{id}', 'MapsController@showMapForm'); // staff only
+Route::post('maps/edit/{id}', 'MapsController@saveMap'); // staff only
 Route::get('maps', 'MapsController@showAllMaps');
+
+// Nades
+Route::get('nades/add', 'NadesController@showNadeForm'); // logged in only
+Route::post('nades/add', 'NadesController@saveNade'); // logged in only
+Route::get('nades/edit/{id}', 'NadesController@showNadeForm'); // staff only
+Route::post('nades/edit/{id}', 'NadesController@saveNade'); // staff only
+Route::get('nades/unapproved', 'NadesController@showUnapprovedNades'); // staff only
+Route::get('nades', 'NadesController@showSomeNades');
