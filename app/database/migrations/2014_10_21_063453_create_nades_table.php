@@ -18,6 +18,8 @@ class CreateNadesTable extends Migration {
             $table->foreign('map_id')->references('id')->on('maps');
             $table->integer('pop_spot_id')->unsigned();
             $table->foreign('pop_spot_id')->references('id')->on('pop_spots');
+            $table->integer('user_id')->unsigned();
+            $table->foreign('user_id')->references('id')->on('users');
             $table->string('title');
             $table->string('imgur');
             $table->string('youtube');
