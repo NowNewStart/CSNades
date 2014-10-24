@@ -78,7 +78,7 @@ return array(
 	|
 	*/
 
-	'key' => 'YourSecretKey!!!',
+	'key' => getenv('encryption_key'),
 
 	'cipher' => MCRYPT_RIJNDAEL_128,
 
