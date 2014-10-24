@@ -86,6 +86,7 @@ require app_path().'/filters.php';
 |--------------------------------------------------------------------------
 |
 | Load the composers file for the application. See docs for View Composers.
+| http://laravel.com/docs/4.2/responses#view-composers
 |
 */
 
