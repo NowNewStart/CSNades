@@ -51,6 +51,14 @@ App::error(function(Exception $exception, $code)
 	Log::error($exception);
 });
 
+// Show a default 404 page if in production environment
+App::missing(function($exception)
+{
+    if ('production' === App::environment()) {
+        return Response::view('errors.missing', array(), 404);
+    }
+});
+
 /*
 |--------------------------------------------------------------------------
 | Maintenance Mode Handler
