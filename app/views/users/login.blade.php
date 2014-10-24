@@ -2,7 +2,7 @@
 
 @section('content')
         @if($loginFailed)
-        <div class="alert alert-danger"><strong>Login Failed!</strong></div>
+        <div class="alert alert-danger"><strong>Invalid username and password</strong></div>
         @endif
         {{ Form::open(array('method' => 'post', 'action' => 'UsersController@showLoginForm')) }}
             <div class="form-group">
@@ -12,6 +12,12 @@
             <div class="form-group">
                 <label for="password">Password</label>
                 <input type="password" name="password" placeholder="Password" class="form-control">
+            </div>
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" name="remember" value="1">
+                        Remember Me
+                </label>
             </div>
             <!-- <input type="submit" value="Login" class="btn btn-primary" /> -->
             <button type="submit" class="btn btn-primary">Login</button>

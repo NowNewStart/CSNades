@@ -34,13 +34,18 @@
             </div>
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
+                    @if ($user)
                     <li>
-                        @if ($user)
-                        <a href="{{ action('UsersController@logout') }}">Welcome {{ $user->username }}!</a>
-                        @else
-                        <a href="{{ action('UsersController@showLoginForm') }}">Login</a>
-                        @endif
+                        <a href="{{ action('UsersController@showProfile') }}">Welcome, {{ $user->username }}!</a>
                     </li>
+                    <li>
+                        <a href="{{ action('UsersController@logout') }}">Logout</a>
+                    </li>
+                    @else
+                    <li>
+                        <a href="{{ action('UsersController@showLoginForm') }}">Login</a>
+                    </li>
+                    @endif
                     <li>
                         <a href="http://steamcommunity.com/tradeoffer/new/?partner=77337443&token=LHJlb5mV">Donate <span class="glyphicon glyphicon-heart"></span></a>
                     </li>

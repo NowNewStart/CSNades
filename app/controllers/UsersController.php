@@ -3,12 +3,17 @@
 class UsersController extends BaseController {
     public function attemptLogin()
     {
+        $remember = false;
         $user = array(
             'username' => Input::get('username'),
             'password' => Input::get('password'),
         );
 
-        if (Auth::attempt($user, true)) {
+        if (Input::get('remember')) {
+            $remember = true;
+        }
+
+        if (Auth::attempt($user, $remember)) {
             return Redirect::intended();
         }
 
@@ -23,7 +28,7 @@ class UsersController extends BaseController {
     public function logout()
     {
         Auth::logout();
-        return Redirect::home();
+        return Redirect::action('UsersController@showLoginForm');
     }
 
     public function showLoginForm()
@@ -38,5 +43,10 @@ class UsersController extends BaseController {
         );
 
         return View::make('users.login')->with($viewData);
+    }
+
+    public function showProfile()
+    {
+        return "Profile";
     }
 }
