@@ -11,10 +11,10 @@
 |
 */
 
-Route::get('/', function()
+Route::get('/', array('as' => 'home', function()
 {
 	return View::make('main')->with('heading', 'Most Recent Nades');
-});
+}));
 
 Route::get('env', function(){
     return App::environment();
@@ -24,8 +24,8 @@ Route::get('env', function(){
 Route::get('maps/{slug}', 'MapsController@showMap');
 Route::get('maps/add', 'MapsController@showMapForm'); // logged in only
 Route::post('maps/add', 'MapsController@saveMap'); // logged in only
-Route::get('maps/edit/{id}', 'MapsController@showMapForm'); // staff only
-Route::post('maps/edit/{id}', 'MapsController@saveMap'); // staff only
+Route::get('maps/edit/{id}', 'MapsController@showMapForm'); // staff
+Route::post('maps/edit/{id}', 'MapsController@saveMap'); // staff
 Route::get('maps', 'MapsController@showAllMaps');
 
 // Nades
@@ -35,3 +35,8 @@ Route::get('nades/edit/{id}', 'NadesController@showNadeForm'); // staff only
 Route::post('nades/edit/{id}', 'NadesController@saveNade'); // staff only
 Route::get('nades/unapproved', 'NadesController@showUnapprovedNades'); // staff only
 Route::get('nades', 'NadesController@showSomeNades');
+
+// Users
+Route::get('login', 'UsersController@showLoginForm');
+Route::post('login', 'UsersController@attemptLogin');
+Route::get('logout', 'UsersController@logout');
