@@ -33,9 +33,22 @@
                 <a class="navbar-brand" href="index.php">CSNades</a>
             </div>
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav navbar-right">
+                <ul class="nav navbar-nav">
                     @if ($user)
+                    <li class="visible-xs">
+                        <a href="{{ action('UsersController@showProfile') }}">Welcome, {{ $user->username }}!</a>
+                    </li>
+                    @endif
                     <li>
+                        <a href="{{ action('MapsController@showAllMaps') }}">Browse Maps</a>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="visible-xsa">
+                        <a href="http://steamcommunity.com/tradeoffer/new/?partner=77337443&token=LHJlb5mV">Donate <span class="glyphicon glyphicon-heart"></span></a>
+                    </li>
+                    @if ($user)
+                    <li class="hidden-xs">
                         <a href="{{ action('UsersController@showProfile') }}">Welcome, {{ $user->username }}!</a>
                     </li>
                     <li>
@@ -46,9 +59,9 @@
                         <a href="{{ action('UsersController@showLoginForm') }}">Login</a>
                     </li>
                     @endif
-                    <li>
+                    <!-- <li class="hidden-xs">
                         <a href="http://steamcommunity.com/tradeoffer/new/?partner=77337443&token=LHJlb5mV">Donate <span class="glyphicon glyphicon-heart"></span></a>
-                    </li>
+                    </li> -->
                 </ul>
             </div> <!-- /.navbar-collapse -->
         </div> <!-- /.container -->
@@ -64,7 +77,7 @@
                         <hr class="intro-divider">
                         <ul class="list-inline intro-social-buttons">
                             <li>
-                                <a href="" class="btn btn-default btn-lg" data-toggle="modal" data-target="#search"><i class="glyphicon glyphicon-search"></i>Search!</a>
+                                <a href="#" class="btn btn-default btn-lg" data-toggle="modal" data-target="#search"><i class="glyphicon glyphicon-search"></i>Search!</a>
                             </li>
                         </ul>
                     </div>
