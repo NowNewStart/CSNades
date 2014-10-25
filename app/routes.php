@@ -11,10 +11,7 @@
 |
 */
 
-Route::get('/', array('as' => 'home', function()
-{
-	return View::make('main')->with('heading', 'Most Recent Nades');
-}));
+Route::get('/', array('as' => 'home', 'uses' => 'HomeController@getIndex'));
 
 Route::get('env', function(){
     return App::environment();
@@ -40,3 +37,4 @@ Route::get('nades', 'NadesController@showSomeNades');
 Route::get('login', 'UsersController@showLoginForm');
 Route::post('login', 'UsersController@attemptLogin');
 Route::get('logout', 'UsersController@logout');
+Route::get('profile', 'UsersController@showProfile');
