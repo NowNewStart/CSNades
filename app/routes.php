@@ -19,22 +19,42 @@ Route::get('env', function(){
 
 // Maps
 Route::get('maps/{slug}', 'MapsController@showMap');
-Route::get('maps/add', 'MapsController@showMapForm'); // logged in only
-Route::post('maps/add', 'MapsController@saveMap'); // logged in only
-Route::get('maps/edit/{id}', 'MapsController@showMapForm'); // staff
-Route::post('maps/edit/{id}', 'MapsController@saveMap'); // staff
 Route::get('maps', 'MapsController@showAllMaps');
 
 // Nades
-Route::get('nades/add', 'NadesController@showNadeForm'); // logged in only
-Route::post('nades/add', 'NadesController@saveNade'); // logged in only
-Route::get('nades/edit/{id}', 'NadesController@showNadeForm'); // staff only
-Route::post('nades/edit/{id}', 'NadesController@saveNade'); // staff only
-Route::get('nades/unapproved', 'NadesController@showUnapprovedNades'); // staff only
 Route::get('nades', 'NadesController@showSomeNades');
 
 // Users
 Route::get('login', 'UsersController@showLoginForm');
 Route::post('login', 'UsersController@attemptLogin');
 Route::get('logout', 'UsersController@logout');
-Route::get('profile', 'UsersController@showProfile');
+
+// Users must be logged in to access these routes
+Route::group(array('before' => 'auth'), function() {
+    // Nades
+    Route::get('nades/add', 'NadesController@showNadeForm');
+    Route::post('nades/add', 'NadesController@saveNade');
+    
+    // Users
+    Route::get('profile', 'UsersController@showProfile');
+
+
+
+
+    // Users must be admin to access these routes
+    Route::group(array('before' => 'auth.admin'), function() {
+        // Maps
+        Route::get('maps/add', 'MapsController@showMapForm');
+        Route::post('maps/add', 'MapsController@saveMap');
+        Route::get('maps/edit/{id}', 'MapsController@showMapForm');
+        Route::post('maps/edit/{id}', 'MapsController@saveMap');
+    });
+
+    // Users must be staff to access these routes
+    Route::group(array('before' => 'auth.staff'), function() {
+        // Nades
+        Route::get('nades/edit/{id}', 'NadesController@showNadeForm');
+        Route::post('nades/edit/{id}', 'NadesController@saveNade');
+        Route::get('nades/unapproved', 'NadesController@showUnapprovedNades');
+    });
+});

@@ -23,10 +23,11 @@ class UserTableSeeder extends Seeder {
         DB::table('users')->delete();
 
         $user = array(
-            'username' => 'staff',
-            'password' => Hash::make('asdf'),
-            'email'    => 'staff@gmail.com',
+            'username' => 'admin',
+            'password' => Hash::make('a'),
+            'email'    => 'admin@csnades.com',
             'is_staff' => true,
+            'is_admin' => true,
         );
 
         User::create($user);
