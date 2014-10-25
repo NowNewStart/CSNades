@@ -14,7 +14,8 @@ class CreatePopSpotsTable extends Migration {
 	{
 		Schema::create('pop_spots', function(Blueprint $table) {
             $table->increments('id');
-            $table->string('name');
+            $table->string('name')->unique();
+            $table->string('slug')->unique();
         });
 	}
 
