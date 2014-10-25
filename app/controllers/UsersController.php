@@ -20,7 +20,6 @@ class UsersController extends BaseController {
 
         $viewData = array(
             'heading'     => 'Login',
-            'loginFailed' => true,
         );
 
         Session::flash('flashDanger', 'Invalid username and password.');
@@ -41,8 +40,7 @@ class UsersController extends BaseController {
         }
 
         $viewData = array(
-            'heading'     => 'Login',
-            'loginFailed' => false,
+            'heading' => 'Login',
         );
 
         return View::make('users.login')->with($viewData);
