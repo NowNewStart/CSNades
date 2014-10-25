@@ -14,6 +14,7 @@ class UsersController extends BaseController {
         }
 
         if (Auth::attempt($user, $remember)) {
+            Session::flash('flashSuccess', 'You have been logged in!');
             return Redirect::intended();
         }
 
@@ -22,12 +23,14 @@ class UsersController extends BaseController {
             'loginFailed' => true,
         );
 
+        Session::flash('flashDanger', 'Invalid username and password.');
         return View::make('users.login')->with($viewData);
     }
 
     public function logout()
     {
         Auth::logout();
+        Session::flash('flashInfo', 'You have been logged out.');
         return Redirect::action('UsersController@showLoginForm');
     }
 

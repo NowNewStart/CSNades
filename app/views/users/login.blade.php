@@ -2,11 +2,6 @@
 
 @section('content')
         <div class="row">
-        @if($loginFailed)
-            <div class="col-xs-12">
-                <div class="alert alert-danger"><strong>Invalid username and password</strong></div>
-            </div>
-        @endif
             <div class="col-xs-12">
                 {{ Form::open(array('method' => 'post', 'action' => 'UsersController@showLoginForm', 'class' => 'form-horizontal')) }}
                     <div class="form-group">

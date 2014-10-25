@@ -70,6 +70,32 @@
     <div class="intro-header hidden-xs hidden-sm">
         <div class="container">
             <div class="row">
+                @if(Session::has('flashDanger'))
+                <div class="col-xs-12">
+                    <div class="alert alert-danger">
+                        <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                        {{ Session::get('flashDanger') }}
+                    </div>
+                </div>
+                @endif
+
+                @if(Session::has('flashInfo'))
+                <div class="col-xs-12">
+                    <div class="alert alert-info">
+                        <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                        {{ Session::get('flashInfo') }}
+                    </div>
+                </div>
+                @endif
+
+                @if(Session::has('flashSuccess'))
+                <div class="col-xs-12">
+                    <div class="alert alert-success">
+                        <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                        {{ Session::get('flashSuccess') }}
+                    </div>
+                </div>
+                @endif
                 <div class="col-lg-12">
                     <div class="intro-message">
                         <h1>CSNades</h1>
