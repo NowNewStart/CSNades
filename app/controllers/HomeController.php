@@ -22,6 +22,6 @@ class HomeController extends BaseController {
 
     public function getIndex()
     {
-        return View::make('main')->with('heading', 'Most Recent Nades');
+        return View::make('home.home')->with('heading', 'Most Recent Nades');
     }
 }

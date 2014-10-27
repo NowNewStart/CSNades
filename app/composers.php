@@ -1,6 +1,6 @@
 <?php
 
-View::composer('main', function($view) {
+View::composer('layouts.main', function($view) {
     $viewData = array(
         'maps' => Map::all()->sortBy('name'),
         'user' => Auth::user(),

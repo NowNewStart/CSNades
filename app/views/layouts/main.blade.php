@@ -35,24 +35,36 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                     @if ($user)
-                    <li class="visible-xs">
+                    <!-- <li class="visible-xs">
                         <a href="{{ action('UsersController@showProfile') }}">Welcome, {{ $user->username }}!</a>
+                    </li> -->
+                    <li class="dropdown visible-xs">
+                        @include('partials.authenticated-menu')
                     </li>
                     @endif
                     <li>
                         <a href="{{ action('MapsController@showAllMaps') }}">Browse Maps</a>
                     </li>
+                    <li>
+                        <a href="{{ action('NadesController@showNadeForm') }}">Add Nade</a>
+                    </li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <li class="visible-xsa">
-                        <a href="http://steamcommunity.com/tradeoffer/new/?partner=77337443&token=LHJlb5mV">Donate <span class="glyphicon glyphicon-heart"></span></a>
-                    </li>
-                    @if ($user)
-                    <li class="hidden-xs">
-                        <a href="{{ action('UsersController@showProfile') }}">Welcome, {{ $user->username }}!</a>
+                    <li>
+                        <a href="#" title="Search"><span class="visible-xs">Search</span><span class="hidden-xs glyphicon glyphicon-search"></span></a>
                     </li>
                     <li>
+                        <a href="http://steamcommunity.com/tradeoffer/new/?partner=77337443&token=LHJlb5mV" title="Donate"><span class="visible-xs">Donate</span> <span class="hidden-xs glyphicon glyphicon-heart"></span></a>
+                    </li>
+                    @if ($user)
+                    <!-- <li class="hidden-xs">
+                        <a href="{{ action('UsersController@showProfile') }}" title="Profile">Welcome, {{ $user->username }}!</a>
+                    </li> -->
+                    <li class="visible-xs">
                         <a href="{{ action('UsersController@logout') }}">Logout</a>
+                    </li>
+                    <li class="dropdown hidden-xs">
+                        @include('partials.authenticated-menu')
                     </li>
                     @else
                     <li>
@@ -130,7 +142,7 @@
                             <a href="#"  data-toggle="modal" data-target="#about">About</a>
                         </li>
                     </ul>
-                    <p class="copyright text-muted small">Copyright &copy; 2014 NowNewStart and contributors </p>
+                    <!-- <p class="copyright text-muted small">Copyright &copy; 2014 NowNewStart and contributors </p> -->
                 </div>
             </div>
         </div>

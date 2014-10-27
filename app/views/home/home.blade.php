@@ -1,5 +1,5 @@
-@extends('layout')
+@extends('layouts.main')
 
 @section('content')
-    Faggg!
+    Blah content
 @stop

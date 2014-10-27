@@ -1,0 +1,19 @@
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Welcome, {{ $user->username }}! <span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li>
+                                <a href="{{ action('UsersController@showProfile') }}" title="Profile">Profile</a>
+                            </li>
+                            @if ($user->is_admin)
+                            <li>
+                                <a href="{{ action('MapsController@showMapForm') }}}">Add Map</a>
+                            </li>
+                            @endif
+                            @if ($user->is_staff)
+                            <li>
+                                <a href="{{ action('NadesController@showUnapprovedNades') }}}">Unapproved Nades</a>
+                            </li>
+                            @endif
+                            <li class="hidden-xs">
+                                <a href="{{ action('UsersController@logout') }}">Logout</a>
+                            </li>
+                        </ul>

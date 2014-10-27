@@ -14,11 +14,6 @@ class MapsController extends BaseController {
         return View::make('all-maps')->with($viewData);
     }
 
-    public function showMap($slug)
-    {
-        return $slug;
-    }
-
     public function addMap()
     {
         # code...

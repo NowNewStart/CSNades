@@ -11,6 +11,13 @@
 |
 */
 
+// Route Models
+Route::model('mapId', 'Map');
+Route::model('nadeId', 'Nade');
+Route::bind('map', function($value, $route) {
+    return Map::where('slug', $value)->first();
+});
+
 Route::get('/', array('as' => 'home', 'uses' => 'HomeController@getIndex'));
 
 Route::get('env', function(){
@@ -18,7 +25,10 @@ Route::get('env', function(){
 });
 
 // Maps
-Route::get('maps/{slug}', 'MapsController@showMap');
+// Route::model('mapSlug', 'Map');
+
+Route::get('maps/{map}/{pop}', 'NadesController@showNadesInMapAtSpot');
+Route::get('maps/{map}', 'NadesController@showNadesInMap');
 Route::get('maps', 'MapsController@showAllMaps');
 
 // Nades
@@ -46,15 +56,15 @@ Route::group(array('before' => 'auth'), function() {
         // Maps
         Route::get('maps/add', 'MapsController@showMapForm');
         Route::post('maps/add', 'MapsController@saveMap');
-        Route::get('maps/edit/{id}', 'MapsController@showMapForm');
-        Route::post('maps/edit/{id}', 'MapsController@saveMap');
+        Route::get('maps/edit/{mapId}', 'MapsController@showMapForm');
+        Route::post('maps/edit/{mapId}', 'MapsController@saveMap');
     });
 
     // Users must be staff to access these routes
     Route::group(array('before' => 'auth.staff'), function() {
         // Nades
-        Route::get('nades/edit/{id}', 'NadesController@showNadeForm');
-        Route::post('nades/edit/{id}', 'NadesController@saveNade');
+        Route::get('nades/edit/{nadeId}', 'NadesController@showNadeForm');
+        Route::post('nades/edit/{nadeId}', 'NadesController@saveNade');
         Route::get('nades/unapproved', 'NadesController@showUnapprovedNades');
     });
 });
