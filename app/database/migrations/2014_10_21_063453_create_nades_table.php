@@ -16,10 +16,11 @@ class CreateNadesTable extends Migration {
             $table->increments('id');
             $table->integer('map_id')->unsigned();
             $table->foreign('map_id')->references('id')->on('maps');
-            $table->integer('pop_spot_id')->unsigned();
-            $table->foreign('pop_spot_id')->references('id')->on('pop_spots');
+            // $table->integer('pop_spot_id')->unsigned();
+            // $table->foreign('pop_spot_id')->references('id')->on('pop_spots');
             $table->integer('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users');
+            $table->enum('pop_spot', array('a-site', 'b-site', 'mid', 'other'));
             $table->string('title');
             $table->string('imgur_album');
             // $table->string('imgur_gifv');
