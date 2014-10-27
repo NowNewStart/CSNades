@@ -15,11 +15,8 @@ environment.php file will need to say 'production' rather than 'local'.
 
 # Database Seeding
 Laravel has a tool that allows us to put a bunch of data into our database. This
-certainly comes in handy when needing data to run our app!
-
-First, you need to edit the User seed so that we can create our local user for
-the environment. From the command line, navigate to the root directory of the
-project and run:
+certainly comes in handy when needing data to run our app! From the command
+line, navigate to the root directory of the project and run:
 ````
 php artisan migrate
 php artisan db:seed
