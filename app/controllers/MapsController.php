@@ -11,7 +11,7 @@ class MapsController extends BaseController {
             'heading' => 'Maps',
         );
 
-        return View::make('all-maps')->with($viewData);
+        return View::make('maps.all-maps')->with($viewData);
     }
 
     public function addMap()
