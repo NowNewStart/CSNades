@@ -9,9 +9,10 @@ composer install
 * Set the Document Root to the public directory of the application, eg: /path/to/csnades-website/public
 
 # Environment Configuration
-Browse to /path/to/csnades. Create a copy of .env.php.sample, name it .env.local.php, and change the values
-accordingly. On the production server, the file will be named .env.php, and the
-environment.php file will need to say 'production' rather than 'local'.
+Browse to /path/to/csnades. Create a copy of .env.php.sample, name it
+.env.local.php, and change the values accordingly. On the production server, the
+file will be named .env.php, and the environment.php file will need to say
+'production' rather than 'local'.
 
 # Database Seeding
 Laravel has a tool that allows us to put a bunch of data into our database. This
