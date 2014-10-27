@@ -9,7 +9,7 @@ composer install
 * Set the Document Root to the public directory of the application, eg: /path/to/csnades-website/public
 
 # Environment Configuration
-Create a copy of .env.php.sample, name it .env.local.php, and change the values
+Browse to /path/to/csnades. Create a copy of .env.php.sample, name it .env.local.php, and change the values
 accordingly. On the production server, the file will be named .env.php, and the
 environment.php file will need to say 'production' rather than 'local'.
 
@@ -18,9 +18,8 @@ Laravel has a tool that allows us to put a bunch of data into our database. This
 certainly comes in handy when needing data to run our app!
 
 First, you need to edit the User seed so that we can create our local user for
-the environment. To do this, navigate to app/database/seeds/UserSeeder.php, then
-edit the values in the $user array.
-From the command line, navigate to the root directory of the project and run:
+the environment. From the command line, navigate to the root directory of the
+project and run:
 ````
 php artisan migrate
 php artisan db:seed
