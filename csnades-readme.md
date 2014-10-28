@@ -1,3 +1,7 @@
+# Dependencies
+* PHP 5.4
+* mcrypt
+
 # Installing
 * Install Composer
 * Clone this repo
@@ -10,8 +14,8 @@ composer install
 
 # Environment Configuration
 Browse to /path/to/csnades. Create a copy of .env.php.sample, name it
-.env.local.php, and change the values accordingly. On the production server, the
-file will be named .env.php, and the environment.php file will need to say
+.env.local.php, and change the values accordingly. On the production server,
+the file will be named .env.php, and the environment.php file will need to say
 'production' rather than 'local'.
 
 # Database Seeding
