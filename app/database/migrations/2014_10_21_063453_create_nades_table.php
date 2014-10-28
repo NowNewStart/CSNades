@@ -20,6 +20,7 @@ class CreateNadesTable extends Migration {
             // $table->foreign('pop_spot_id')->references('id')->on('pop_spots');
             $table->integer('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users');
+            $table->enum('type', array('fire', 'flash', 'frag', 'smoke'));
             $table->enum('pop_spot', array('a-site', 'b-site', 'mid', 'other'));
             $table->string('title');
             $table->string('imgur_album');
