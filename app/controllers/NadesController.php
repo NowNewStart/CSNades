@@ -12,14 +12,6 @@ class NadesController extends BaseController {
         if ($id) {
             $nade = Nade::find($id);
         } else {
-            $nadeArr = array(
-                'type'        => 'flash',
-                'pop_spot'    => 'b-site',
-                'title'       => 'bewbs',
-                'imgur_album' => 'linky',
-                'is_working'  => true,
-                'tags'        => 'short'
-            );
             $nade = new Nade();
         }
 
