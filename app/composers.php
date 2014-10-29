@@ -1,6 +1,6 @@
 <?php
 
-View::composer('layouts.main', function($view) {
+View::composer(array('layouts.main', 'nades.nade-form'), function($view) {
     $viewData = array(
         'maps' => Map::all()->sortBy('name'),
         'user' => Auth::user(),

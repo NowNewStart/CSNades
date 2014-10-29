@@ -43,7 +43,7 @@ Route::get('logout', 'UsersController@logout');
 Route::group(array('before' => 'auth'), function() {
     // Nades
     Route::get('nades/add', 'NadesController@showNadeForm');
-    Route::post('nades/add', 'NadesController@saveNade');
+    Route::post('nades/add', array('before' => 'csrf', 'uses' => 'NadesController@saveNade'));
     
     // Users
     Route::get('profile', 'UsersController@showProfile');
