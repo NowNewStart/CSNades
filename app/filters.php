@@ -119,6 +119,10 @@ Route::filter('csrf', function()
 {
 	if (Session::token() != Input::get('_token'))
 	{
-		throw new Illuminate\Session\TokenMismatchException;
+       if (Request::ajax()) {
+            return Response::make('Unauthorized', 401);
+        }
+
+		return View::make('errors.403');
 	}
 });
