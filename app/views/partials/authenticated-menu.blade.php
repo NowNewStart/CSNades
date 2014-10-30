@@ -8,7 +8,7 @@
                                 <a href="{{ action('MapsController@showMapForm') }}}">Add Map</a>
                             </li>
                             @endif
-                            @if ($user->is_staff)
+                            @if ($user->is_mod)
                             <li>
                                 <a href="{{ action('NadesController@showUnapprovedNades') }}}">Unapproved Nades</a>
                             </li>

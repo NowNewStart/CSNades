@@ -45,7 +45,7 @@
                                 </label>
                             </div>
                         </div>
-                        @if($user->is_staff)
+                        @if($user->is_mod)
                         <div class="col-xs-12">
                             <div class="checkbox">
                                 <label>

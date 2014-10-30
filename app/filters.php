@@ -71,9 +71,9 @@ Route::filter('auth.admin', function()
     }
 });
 
-Route::filter('auth.staff', function()
+Route::filter('auth.mod', function()
 {
-    if (!Auth::user()->is_staff)
+    if (!Auth::user()->is_mod)
     {
         if (Request::ajax())
         {
