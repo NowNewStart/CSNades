@@ -38,6 +38,9 @@ Route::get('nades', 'NadesController@showSomeNades');
 Route::get('login', 'UsersController@showLoginForm');
 Route::post('login', 'UsersController@attemptLogin');
 Route::get('logout', 'UsersController@logout');
+Route::get('register', 'UsersController@showRegistrationForm');
+Route::post('register', array('before' => 'csrf', 'uses' => 'UsersController@addUser'));
+Route::get('confirm', 'UsersController@showLoginForm');
 
 // Users must be logged in to access these routes
 Route::group(array('before' => 'auth'), function() {
@@ -60,8 +63,8 @@ Route::group(array('before' => 'auth'), function() {
         Route::post('maps/edit/{mapId}', 'MapsController@saveMap');
     });
 
-    // Users must be staff to access these routes
-    Route::group(array('before' => 'auth.staff'), function() {
+    // Users must be a mod to access these routes
+    Route::group(array('before' => 'auth.mod'), function() {
         // Nades
         Route::get('nades/edit/{nadeId}', 'NadesController@showNadeForm');
         Route::post('nades/edit/{nadeId}', 'NadesController@saveNade');
