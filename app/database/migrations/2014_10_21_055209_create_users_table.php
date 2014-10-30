@@ -19,7 +19,7 @@ class CreateUsersTable extends Migration {
             $table->string('email')->unique();
             $table->boolean('is_mod');
             $table->boolean('is_admin');
-            $table->timestamp('confirmed_at');
+            $table->boolean('active');
             $table->timestamps();
             $table->rememberToken();
         });
