@@ -39,7 +39,7 @@ class UsersController extends BaseController {
                 );
 
                 Mail::send('emails.users.confirm', $viewData, function($message) use ($user) {
-                    $message->from('csnades+support@gmail.com', 'CSNades Team');
+                    $message->from('support@csnades.com', 'CSNades Team');
                     $message->to($user->email, $user->username);
                     $message->subject('CSNades Account Confirmation');
                 });
@@ -100,7 +100,7 @@ class UsersController extends BaseController {
         }
 
         Session::flash('flashSuccess', 'Your account is confirmed! You may proceed to login.');
-        return Redirect::to('/');
+        return Redirect::action('UsersController@showLoginForm');
     }
 
     public function logout()
