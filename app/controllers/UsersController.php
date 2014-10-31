@@ -1,6 +1,9 @@
 <?php
 
+use Illuminate\Database\Eloquent\ModelNotFoundException;
+
 class UsersController extends BaseController {
+
     public function addUser()
     {
         $rules = array(
@@ -12,7 +15,7 @@ class UsersController extends BaseController {
         $validator = Validator::make(Input::all(), $rules);
         
         if ($validator->fails()) {
-            Session::flash('flashError', 'You did not fill out the form correctly.');
+            Session::flash('flashDanger', 'You did not fill out the form correctly.');
             return View::make('users.add-user')->with('heading', 'Register');
         }
 
@@ -25,11 +28,29 @@ class UsersController extends BaseController {
         $user = User::create($userArray);
 
         if ($user->save()) {
-            Session::flash('flashSuccess', 'You have been registered. Please notify an Administrator.');
-            return Redirect::to('/');
+            $confirmation = new Confirmation;
+            $confirmation->code = str_random(32);
+            $confirmation->user()->associate($user);
+
+            if ($confirmation->save()) {
+                $viewData = array(
+                    'username' => $user->username,
+                    'token' => $confirmation->code,
+                );
+
+                Mail::send('emails.users.confirm', $viewData, function($message) use ($user) {
+                    $message->from('csnades+support@gmail.com', 'CSNades Team');
+                    $message->to($user->email, $user->username);
+                    $message->subject('CSNades Account Confirmation');
+                });
+
+                Session::flash('flashSuccess', 'You have been registered. Please notify an Administrator.');
+                return Redirect::to('/');
+            }
+
         }
 
-        Session::flash('flashError', 'The user account was not saved. Please notify an Administrator');
+        Session::flash('flashDanger', 'The user account was not saved. Please notify an Administrator');
         return Redirect::to('/');
     }
 
@@ -57,6 +78,29 @@ class UsersController extends BaseController {
 
         Session::flash('flashDanger', 'Invalid username and password.');
         return View::make('users.login')->with($viewData);
+    }
+
+    public function confirmUser($code)
+    {
+        try {
+            $confirmation = Confirmation::where('code', $code)->firstOrFail();
+        } catch (ModelNotFoundException $e) {
+            Session::flash('flashDanger', 'The provided confirmation code was not found');
+            return Redirect::to('/');
+        }
+
+        $user = $confirmation->user;
+        $user->active = 1;
+
+        if (!$user->save() || !$confirmation->delete()) {
+            $flashDanger = 'There was an error confirming your account. Please contact support';
+
+            Session::flash('flashDanger', $flashDanger);
+            return Redirect::to('/');
+        }
+
+        Session::flash('flashSuccess', 'Your account is confirmed! You may proceed to login.');
+        return Redirect::to('/');
     }
 
     public function logout()

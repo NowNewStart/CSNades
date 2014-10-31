@@ -24,6 +24,10 @@ Route::get('env', function(){
     return App::environment();
 });
 
+Route::get('test', function() {
+    return User::where('username', '=', 'FatBoyXPC');
+});
+
 // Maps
 // Route::model('mapSlug', 'Map');
 
@@ -40,7 +44,7 @@ Route::post('login', 'UsersController@attemptLogin');
 Route::get('logout', 'UsersController@logout');
 Route::get('register', 'UsersController@showRegistrationForm');
 Route::post('register', array('before' => 'csrf', 'uses' => 'UsersController@addUser'));
-Route::get('confirm', 'UsersController@showLoginForm');
+Route::get('users/confirm/{code}', 'UsersController@confirmUser');
 
 // Users must be logged in to access these routes
 Route::group(array('before' => 'auth'), function() {
