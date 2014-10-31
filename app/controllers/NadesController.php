@@ -28,10 +28,11 @@ class NadesController extends BaseController {
         $nade->youtube     = Input::get('youtube');
         $nade->tags        = Input::get('tags');
         $nade->is_working  = Input::get('is_working');
-        $nade->is_approved = false;
 
-        if (Auth::user()->is_mod) {
-            $nade->is_approved = Input::get('is_approved');
+        if (Auth::user()->is_mod && Input::get('is_approved')) {
+            return "t";
+            $nade->approved_by()->associate($Auth::user());
+            $nade->approved_at = $nade->freshTimestamp();
         }
 
         if ($nade->save()) {
