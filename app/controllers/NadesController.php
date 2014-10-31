@@ -28,7 +28,11 @@ class NadesController extends BaseController {
         $nade->youtube     = Input::get('youtube');
         $nade->tags        = Input::get('tags');
         $nade->is_working  = Input::get('is_working');
-        $nade->is_approved = Input::get('is_approved');
+        $nade->is_approved = false;
+
+        if (Auth::user()->is_mod) {
+            $nade->is_approved = Input::get('is_approved');
+        }
 
         if ($nade->save()) {
             Session::flash('flashSuccess', 'The nade has been saved!');
