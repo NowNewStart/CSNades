@@ -33,5 +33,8 @@
                     </div>
                 {{ Form::close() }}
             </div>
+            <div class="col-xs-12">
+                <a href="{{ action('UsersController@showRegistrationForm') }}">Don't have an account? Click here to register</a>
+            </div>
         </div>
 @stop

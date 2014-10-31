@@ -70,6 +70,9 @@
                     <li>
                         <a href="{{ action('UsersController@showLoginForm') }}">Login</a>
                     </li>
+                    <li>
+                        <a href="{{ action('UsersController@showRegistrationForm') }}">Register</a>
+                    </li>
                     @endif
                     <!-- <li class="hidden-xs">
                         <a href="http://steamcommunity.com/tradeoffer/new/?partner=77337443&token=LHJlb5mV">Donate <span class="glyphicon glyphicon-heart"></span></a>
