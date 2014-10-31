@@ -11,27 +11,9 @@ class DatabaseSeeder extends Seeder {
 	{
 		Eloquent::unguard();
 
-		$this->call('UserTableSeeder');
         $this->call('MapTableSeeder');
 	}
 
-}
-
-class UserTableSeeder extends Seeder {
-    public function run()
-    {
-        DB::table('users')->delete();
-
-        $user = array(
-            'username' => 'admin',
-            'password' => Hash::make('a'),
-            'email'    => 'admin@csnades.com',
-            'is_staff' => true,
-            'is_admin' => true,
-        );
-
-        User::create($user);
-    }
 }
 
 class MapTableSeeder extends Seeder {
@@ -66,5 +48,17 @@ class MapTableSeeder extends Seeder {
                 'image' => $value,
             ));
         }
+    }
+}
+
+class NadesTableSeeder extends Seeder {
+    public function run()
+    {
+        DB::table('nades')->delete();
+
+        $map = Map::find(1);
+        $user = User::find(1);
+
+        
     }
 }
