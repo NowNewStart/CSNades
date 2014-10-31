@@ -15,7 +15,7 @@ return array(
 	|
 	*/
 
-	'driver' => 'smtp',
+	'driver' => getenv('mail_driver'),
 
 	/*
 	|--------------------------------------------------------------------------
@@ -119,6 +119,6 @@ return array(
 	|
 	*/
 
-	'pretend' => false,
+	'pretend' => getenv('mail_pretend'),
 
 );
