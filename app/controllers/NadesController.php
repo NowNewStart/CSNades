@@ -30,7 +30,6 @@ class NadesController extends BaseController {
         $nade->is_working  = Input::get('is_working');
 
         if (Auth::user()->is_mod && Input::get('is_approved')) {
-            return "t";
             $nade->approved_by()->associate($Auth::user());
             $nade->approved_at = $nade->freshTimestamp();
         }
