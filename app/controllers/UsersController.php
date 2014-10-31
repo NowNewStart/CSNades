@@ -1,6 +1,6 @@
 <?php
 
-
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 
 class UsersController extends BaseController {
 
