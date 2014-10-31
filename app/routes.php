@@ -24,10 +24,6 @@ Route::get('env', function(){
     return App::environment();
 });
 
-Route::get('test', function() {
-    return User::where('username', '=', 'FatBoyXPC');
-});
-
 // Maps
 // Route::model('mapSlug', 'Map');
 
