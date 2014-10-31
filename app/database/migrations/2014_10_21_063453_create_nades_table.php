@@ -27,8 +27,10 @@ class CreateNadesTable extends Migration {
             // $table->string('imgur_gifv');
             $table->string('youtube');
             $table->boolean('is_working');
-            $table->boolean('is_approved');
             $table->string('tags');
+            $table->integer('approved_by')->unsigned()->nullable();
+            $table->foreign('approved_by')->references('id')->on('users');
+            $table->timestamp('approved_at');
             $table->timestamps();
         });
 	}

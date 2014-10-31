@@ -44,9 +44,12 @@ class UsersController extends BaseController {
                     $message->subject('CSNades Account Confirmation');
                 });
 
-                Session::flash('flashSuccess', 'You have been registered. Please notify an Administrator.');
+                Session::flash('flashSuccess', 'You have been registered. Please check your email to verify your account.');
                 return Redirect::to('/');
             }
+
+            Session::flash('flashWarning', 'You have been registered, but there was an error. Please notify an Administrator.');
+            return Redirect::to('/');
 
         }
 
