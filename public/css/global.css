@@ -260,7 +260,8 @@ nav + div {
   border: 1px solid rgba(255, 255, 255, .1);
   border-radius: 0;
   color: #ccc;
-  padding: 20px 15px;
+  padding: 10px 15px;
+  height: 42px;
 }
 
 .form-control:focus {
@@ -270,16 +271,20 @@ nav + div {
   outline: 0;
 }
 
+form {
+  margin-top: -15px;
+}
+
 .form-group {
   margin: 0;
 }
 
-.form-group:not(:first-of-type) label {
+.form-group > label {
   margin: 15px 0 5px;
 }
 
 .form-group button[type="submit"] {
-  margin: 15px 0 0;
+  margin: 15px 0 100px;
 }
 
 .form-group .checkbox {
@@ -292,6 +297,10 @@ nav + div {
 
 .form-group .btn + a {
   margin-top: 21px;
+}
+
+textarea.form-control {
+  padding: 8px 15px;
 }
 
 .well, .alert {
