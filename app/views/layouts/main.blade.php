@@ -130,7 +130,7 @@
   </div>
 
   <footer>
-    <div class="container" >
+    <div class="container">
       <div class="row">
         <div class="col-lg-12">
           <ul class="list-inline">
