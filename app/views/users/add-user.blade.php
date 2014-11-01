@@ -13,13 +13,13 @@
             <div class="form-group">
               <label for="username" class="col-xs-12">Username</label>
               <div class="col-xs-12">
-                <input type="text" name="username" id="username" class="form-control" placeholder="minimum 8 characters">
+                <input type="text" name="username" id="username" class="form-control" placeholder="At least 6 characters">
               </div>
             </div>
             <div class="form-group">
               <label for="password" class="col-xs-12">Password</label>
               <div class="col-xs-12">
-                <input type="password" name="password" id="password" class="form-control" placeholder="minimum 8 characters">
+                <input type="password" name="password" id="password" class="form-control" placeholder="At least 8 characters">
               </div>
             </div>
             <div class="form-group">

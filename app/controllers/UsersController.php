@@ -7,7 +7,7 @@ class UsersController extends BaseController {
     public function addUser()
     {
         $rules = array(
-            'username'  => 'required|alpha_num|min:8|max:20|unique:users',
+            'username'  => 'required|alpha_num|min:6|max:20|unique:users',
             'password'  => 'min:8',
             'password2' => 'same:password',
             'email'     => 'required|email|unique:users',
