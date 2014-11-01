@@ -64,7 +64,7 @@
               @include('partials.authenticated-menu')
             </li>
             <li class="visible-xs">
-              <a href="http://beta.nownewstart.net/logout">Logout</a>
+              <a href="{{ action('UsersController@logout') }}">Logout</a>
             </li>
             @else
             <li>

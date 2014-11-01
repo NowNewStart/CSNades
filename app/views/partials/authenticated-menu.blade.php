@@ -10,12 +10,9 @@
                   @endif
                   @if ($user->is_mod)
                   <li>
-                      <a href="{{ action('NadesController@showUnapprovedNades') }}}">Unapproved Nades</a>
+                      <a href="{{ action('NadesController@showUnapprovedNades') }}">Unapproved Nades</a>
                   </li>
                   @endif
-                  <li>
-                    <a href="http://beta.nownewstart.net/nades/unapproved%7D">Unapproved Nades</a>
-                  </li>
                   <li class="hidden-xs">
                       <a href="{{ action('UsersController@logout') }}">Logout</a>
                   </li>

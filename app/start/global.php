@@ -54,6 +54,7 @@ App::error(function(Exception $exception, $code)
 // Show a default 404 page if in production environment
 App::missing(function($exception)
 {
+    return Response::view('errors.404', array('heading' => '404'), 404);
     if ('production' === App::environment()) {
         return Response::view('errors.404', array(), 404);
     }
