@@ -260,7 +260,8 @@ nav + div {
   border: 1px solid rgba(255, 255, 255, .1);
   border-radius: 0;
   color: #ccc;
-  padding: 20px 15px;
+  padding: 10px 15px;
+  height: 42px;
 }
 
 .form-control:focus {
