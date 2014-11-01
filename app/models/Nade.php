@@ -60,6 +60,11 @@ class Nade extends Eloquent {
         return self::$popSpots;
     }
 
+    public function approved_by()
+    {
+        return $this->belongsTo('User', 'approved_by');
+    }
+
     public function map()
     {
         return $this->belongsTo('Map');
