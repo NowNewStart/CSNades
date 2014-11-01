@@ -27,7 +27,7 @@ $app = new Illuminate\Foundation\Application;
 $env = $app->detectEnvironment(function() {
     chdir(dirname(__FILE__));
 
-    $envFile = '../environment.php';
+    $envFile = '../.environment.php';
 
     if (file_exists($envFile)) {
         return include $envFile;
