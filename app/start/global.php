@@ -55,7 +55,7 @@ App::error(function(Exception $exception, $code)
 App::missing(function($exception)
 {
     if ('production' === App::environment()) {
-        return Response::view('errors.missing', array(), 404);
+        return Response::view('errors.404', array(), 404);
     }
 });
 
