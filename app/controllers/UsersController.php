@@ -15,8 +15,8 @@ class UsersController extends BaseController {
         $validator = Validator::make(Input::all(), $rules);
         
         if ($validator->fails()) {
-            Session::flash('flashDanger', 'You did not fill out the form correctly.');
-            return View::make('users.add-user')->with('heading', 'Register');
+            return Redirect::action('UsersController@showAddUserForm')
+                ->withFlashDanger('There were some errors with the form');
         }
 
         $userArray = array(
@@ -44,17 +44,17 @@ class UsersController extends BaseController {
                     $message->subject('CSNades Account Confirmation');
                 });
 
-                Session::flash('flashSuccess', 'You have been registered. Please check your email to verify your account.');
-                return Redirect::to('/');
+                $flashSuccess = 'You have been registered. Please check your email to verify your account.';
+                return Redirect::to('/')->withFlashSuccess($flashSuccess);
             }
 
-            Session::flash('flashWarning', 'You have been registered, but there was an error. Please notify an Administrator.');
-            return Redirect::to('/');
+            $flashWarning = 'You have been registered, but there was an error. Please notify an Administrator.';
+            return Redirect::to('/')->withFlashWarning($flashWarning);
 
         }
 
-        Session::flash('flashDanger', 'The user account was not saved. Please notify an Administrator');
-        return Redirect::to('/');
+        $flashDanger = 'The user account was not saved. Please notify an Administrator.';
+        return Redirect::to('/')->withFlashDanger($flashDanger);
     }
 
     public function attemptLogin()
@@ -71,16 +71,15 @@ class UsersController extends BaseController {
         }
 
         if (Auth::attempt($user, $remember)) {
-            Session::flash('flashSuccess', 'You have been logged in!');
-            return Redirect::intended();
+            return Redirect::intended()->withFlashSuccess('You have been logged in!');
         }
 
         $viewData = array(
             'heading'     => 'Login',
         );
 
-        Session::flash('flashDanger', 'Invalid username and password.');
-        return View::make('users.login')->with($viewData);
+        $flashDanger = 'Invalid username and password.';
+        return View::make('users.login')->with($viewData)->withFlashDanger($flashDanger);
     }
 
     public function confirmUser($code)
@@ -88,29 +87,28 @@ class UsersController extends BaseController {
         try {
             $confirmation = Confirmation::where('code', $code)->firstOrFail();
         } catch (ModelNotFoundException $e) {
-            Session::flash('flashDanger', 'The provided confirmation code was not found');
-            return Redirect::to('/');
+            $flashDanger = 'The provided confirmation code was not found.';
+            return Redirect::to('/')->withFlashDanger($flashDanger);
         }
 
         $user = $confirmation->user;
         $user->active = 1;
 
         if (!$user->save() || !$confirmation->delete()) {
-            $flashDanger = 'There was an error confirming your account. Please contact support';
-
-            Session::flash('flashDanger', $flashDanger);
-            return Redirect::to('/');
+            $flashDanger = 'There was an error confirming your account. Please contact support.';
+            return Redirect::to('/')->withFlashDanger($flashDanger);
         }
 
-        Session::flash('flashSuccess', 'Your account is confirmed! You may proceed to login.');
-        return Redirect::action('UsersController@showLoginForm');
+        $flashSuccess = 'Your account is confirmed! You may proceed to login.';
+        return Redirect::action('UsersController@showLoginForm')->withFlashSuccess($flashSuccess);
     }
 
     public function logout()
     {
         Auth::logout();
-        Session::flash('flashInfo', 'You have been logged out.');
-        return Redirect::action('UsersController@showLoginForm');
+
+        $flashInfo = 'You have been logged out.';
+        return Redirect::action('UsersController@showLoginForm')->withFlashInfo($flashInfo);
     }
 
     public function showAddUserForm()
