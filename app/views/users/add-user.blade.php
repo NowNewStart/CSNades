@@ -7,14 +7,14 @@
             <div class="form-group {{ $errors->has('email') ? 'has-error' : 'has-success' }}">
               <label for="email" class="col-xs-12">Email</label>
               <div class="col-xs-12">
-                <input type="text" name="email" id="email" class="form-control">
+                <input type="text" name="email" id="email" class="form-control" value="{{ Input::old('email') }}">
                 {{ $errors->first('email', '<p>:message</p>') }}
               </div>
             </div>
             <div class="form-group {{ $errors->has('username') ? 'has-error' : 'has-success' }}">
               <label for="username" class="col-xs-12">Username</label>
               <div class="col-xs-12">
-                <input type="text" name="username" id="username" class="form-control" placeholder="At least 6 characters">
+                <input type="text" name="username" id="username" class="form-control" placeholder="At least 6 characters" value="{{ Input::old('username') }}">
                 {{ $errors->first('username', '<p>:message</p>') }}
               </div>
             </div>

@@ -23,7 +23,8 @@ class UsersController extends BaseController {
         if ($validator->fails()) {
             return Redirect::action('UsersController@showAddUserForm')
                 ->withFlashDanger('There were some errors with the form.')
-                ->withErrors($validator);
+                ->withErrors($validator)
+                ->withInput();
         }
 
         $userArray = array(
