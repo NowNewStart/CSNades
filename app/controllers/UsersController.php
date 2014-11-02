@@ -7,16 +7,17 @@ class UsersController extends BaseController {
     public function addUser()
     {
         $rules = array(
-            'username'  => 'required|alpha_num|min:6|max:20|unique:users',
-            'password'  => 'min:8',
-            'password2' => 'same:password',
+            'username'  => 'required|alpha_num|between:6,20|unique:users',
+            'password'  => 'required|min:8',
+            'password2' => 'required|same:password',
             'email'     => 'required|email|unique:users',
         );
 
         $messages = array(
+            'password2.required' => 'The password confirmation is required.',
             'password2.same' => 'The password and password confirmation must match.',
         );
-        
+
         $validator = Validator::make(Input::all(), $rules, $messages);
         
         if ($validator->fails()) {
