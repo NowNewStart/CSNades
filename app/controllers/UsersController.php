@@ -12,11 +12,17 @@ class UsersController extends BaseController {
             'password2' => 'same:password',
             'email'     => 'required|email|unique:users',
         );
-        $validator = Validator::make(Input::all(), $rules);
+
+        $messages = array(
+            'password2.same' => 'The password and password confirmation must match.',
+        );
+        
+        $validator = Validator::make(Input::all(), $rules, $messages);
         
         if ($validator->fails()) {
             return Redirect::action('UsersController@showAddUserForm')
-                ->withFlashDanger('There were some errors with the form');
+                ->withFlashDanger('There were some errors with the form.')
+                ->withErrors($validator);
         }
 
         $userArray = array(
