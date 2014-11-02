@@ -87,7 +87,7 @@ class UsersController extends BaseController {
         );
 
         $flashDanger = 'Invalid username and password.';
-        return View::make('users.login')->with($viewData)->withFlashDanger($flashDanger);
+        return Redirect::action('UsersController@showLoginForm')->withFlashDanger($flashDanger);
     }
 
     public function confirmUser($code)
