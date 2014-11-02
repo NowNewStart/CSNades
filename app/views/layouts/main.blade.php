@@ -70,7 +70,7 @@
                                 <a href="{{ action('UsersController@showLoginForm') }}">Login</a>
                             </li>
                             <li>
-                                <a href="{{ action('UsersController@showRegistrationForm') }}">Register</a>
+                                <a href="{{ action('UsersController@showAddUserForm') }}">Register</a>
                             </li>
                         @endif
                         </ul>

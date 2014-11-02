@@ -38,7 +38,7 @@ Route::get('nades', 'NadesController@showSomeNades');
 Route::get('login', 'UsersController@showLoginForm');
 Route::post('login', 'UsersController@attemptLogin');
 Route::get('logout', 'UsersController@logout');
-Route::get('register', 'UsersController@showRegistrationForm');
+Route::get('register', 'UsersController@showAddUserForm');
 Route::post('register', array('before' => 'csrf', 'uses' => 'UsersController@addUser'));
 Route::get('users/confirm/{code}', 'UsersController@confirmUser');
 

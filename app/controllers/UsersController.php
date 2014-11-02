@@ -113,6 +113,13 @@ class UsersController extends BaseController {
         return Redirect::action('UsersController@showLoginForm');
     }
 
+    public function showAddUserForm()
+    {
+        $viewData = array('heading' => 'Register');
+
+        return View::make('users.add-user')->with($viewData);
+    }
+
     public function showLoginForm()
     {
         if (Auth::check()) {
@@ -129,12 +136,5 @@ class UsersController extends BaseController {
     public function showProfile()
     {
         return "Profile";
-    }
-
-    public function showRegistrationForm()
-    {
-        $viewData = array('heading' => 'Register');
-
-        return View::make('users.add-user')->with($viewData);
     }
 }
