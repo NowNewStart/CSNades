@@ -83,38 +83,38 @@
                         CSNades is still in <strong>BETA!</strong> <span class="hidden-xs">Please be patient while we finish adding features!</span>
                     </div>
                 </div>
-                @if(Session::has('flashDanger'))
+                @if(Session::has('flash_danger'))
                 <div class="col-xs-12">
                     <div class="alert alert-danger">
                         <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                        {{ Session::get('flashDanger') }}
+                        {{ Session::get('flash_danger') }}
                     </div>
                 </div>
                 @endif
 
-                @if(Session::has('flashWarning'))
+                @if(Session::has('flash_warning'))
                 <div class="col-xs-12">
                     <div class="alert alert-warning">
                         <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                        {{ Session::get('flashWarning') }}
+                        {{ Session::get('flash_warning') }}
                     </div>
                 </div>
                 @endif
 
-                @if(Session::has('flashInfo'))
+                @if(Session::has('flash_info'))
                 <div class="col-xs-12">
                         <div class="alert alert-info">
                             <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                            {{ Session::get('flashInfo') }}
+                            {{ Session::get('flash_info') }}
                         </div>
                 </div>
                 @endif
 
-                @if(Session::has('flashSuccess'))
+                @if(Session::has('flash_success'))
                 <div class="col-xs-12">
                     <div class="alert alert-success">
                         <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                        {{ Session::get('flashSuccess') }}
+                        {{ Session::get('flash_success') }}
                     </div>
                 </div>
                 @endif
