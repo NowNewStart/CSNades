@@ -66,6 +66,9 @@ footer a:focus {
   border-radius: 0;
 }
 
+.center-block {
+  float: none;
+}
 
 button.close {
   line-height: 16px
@@ -354,4 +357,8 @@ textarea.form-control {
 .btn-default:hover, .btn-default:focus,
 .btn-primary:hover, .btn-primary:focus {
   border: 1px solid rgba(255, 255, 255, .1);
+}
+
+.help-block {
+  margin-bottom: 0;
 }

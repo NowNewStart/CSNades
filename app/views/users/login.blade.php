@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="row">
-      <div class="col-lg-4 col-lg-offset-4">
+      <div class="col-lg-4 col-md-5 col-sm-7 center-block">
         {{ Form::open(array('method' => 'post', 'action' => 'UsersController@showLoginForm')) }}
           <div class="form-group">
             <label for="username" class="col-sm-12">Username</label>
