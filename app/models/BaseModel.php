@@ -2,8 +2,9 @@
 
 class BaseModel extends Eloquent {
 
-    protected $rules;
-    protected $messages;
+    protected $input;
+    protected $rules = array();
+    protected $messages = array();
     protected $validator;
 
     public static function boot()
@@ -15,14 +16,45 @@ class BaseModel extends Eloquent {
         });
     }
 
-    public function getValidator()
+    public function addValidation($rule = null, $message = null)
     {
+        if ($rule) {
+            $this->setRule($rule);
+        }
+
+        if ($message) {
+            $this->setMessage($message);
+        }
+
+        return $this;
+    }
+
+    public function getMessages()
+    {
+        return $this->messages;
+    }
+
+    public function getRules()
+    {
+        return $this->rules;
+    }
+
+    public function getValidator($input = null, $rules = null, $messages = null)
+    {
+        if (!$input) {
+            $input = $this->toArray();
+        }
+
+        if (!$rules) {
+            $rules = $this->getRules();
+        }
+
+        if (!$messages) {
+            $messages = $this->getMessages();
+        }
+
         if (!$this->validator) {
-            $this->validator = Validator::make(
-                $this->toArray(),
-                $this->rules,
-                $this->messages
-            );
+            $this->validator = Validator::make($input, $rules, $messages);
         }
 
         return $this->validator;
@@ -30,6 +62,27 @@ class BaseModel extends Eloquent {
 
     public function isValid()
     {
-        return $this->getValidator()->passes();
+        return $this->getValidator($this->input)->passes();
+    }
+
+    public function setInput($input)
+    {
+        $this->input = $input;
+
+        return $this;
+    }
+
+    public function setMessage($messageKey, $message)
+    {
+        $this->messages[$messageKey] = $message;
+
+        return $this;
+    }
+
+    public function setRule($ruleKey, $rule)
+    {
+        $this->rules[$ruleKey] = $rule;
+
+        return $this;
     }
 }
