@@ -70,8 +70,6 @@ class NadesController extends BaseController {
             }
         }
 
-        // return $nades;
-
         $viewData = array(
             'heading'   => "$map->name Nades",
             'map'       => $map,
@@ -88,27 +86,6 @@ class NadesController extends BaseController {
 
     public function showNadeForm()
     {
-        // return "lawl nades";
-
-        // $nadeArr = array(
-        //     'type'        => 'flash',
-        //     'pop_spot'    => 'b-site',
-        //     'title'       => 'bewbs',
-        //     'imgur_album' => 'linky',
-        //     'is_working'  => true,
-        //     'tags'        => 'short'
-        // );
-        // $nade = new Nade($nadeArr);
-        // $map  = Map::find(1);
-        // $user = Auth::user();
-
-        // $nade->map()->associate($map);
-        // $nade->user()->associate($user);
-
-        // if ($nade->save()) {
-        //     return "saved";
-        // }
-        
         $viewData = array(
             'heading'   => 'Add a Nade',
             // 'maps'      => Map::all()->sortBy('name'),
