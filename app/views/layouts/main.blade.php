@@ -122,8 +122,10 @@
             </div>
             <div class="row">
                 <div class="col-xs-12">
+                    @if(isset($heading))
                     <h1>{{ $heading }}</h1>
                     <hr>
+                    @endif
                     @yield('content')
                 </div>
             </div>

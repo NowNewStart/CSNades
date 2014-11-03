@@ -362,3 +362,130 @@ textarea.form-control {
 .help-block {
   margin-bottom: 0;
 }
+
+.csnews {
+  border: 1px solid rgba(255, 255, 255, .1);
+  padding: 10px 15px 0 15px;
+}
+
+.csnews-item {
+  border-bottom: 1px solid rgba(255, 255, 255, .1);
+  color: #eee;
+  padding: 0 0 20px;
+  margin: 0 0 20px;
+}
+
+.csnews-item:last-child {
+  border-bottom: 0;
+  padding: 0 0 0;
+}
+
+.csnews-item .csnews-title {
+  font-weight: 300;
+  font-size: 28px;
+  line-height: 100%;
+  margin-bottom: 10px;
+}
+
+.csnews-item .csnews-date {
+  vertical-align: top;
+  display: inline-block;
+  padding: 0 10px 0 5px;
+}
+
+.csnews-item .csnews-date .csnews-month {
+  padding: 0 10px;
+  text-transform: uppercase;
+  text-align: center;
+  font-size: 20px;
+  font-weight: 700;
+  border-bottom: 1px solid #eee;
+}
+
+.csnews-item .csnews-date .csnews-day {
+  text-align: center;
+  font-size: 40px;
+  line-height: 36px;
+  font-weight: 400;
+}
+
+.csnews-item .csnews-content {
+  line-height: 150%;
+  font-size: 14px;
+  vertical-align: top;
+  display: inline-block;
+  width: calc( 100% - 90px );
+  text-align: justify;
+}
+
+@media (max-width: 768px) {
+  .csnews-item .csnews-title {
+    display: block;
+    margin-bottom: 4px;
+  }
+
+  .csnews-item .csnews-date {
+    padding: 0;
+    display: block;
+    margin-bottom: 5px;
+  }
+
+  .csnews-item .csnews-date .csnews-month {
+    padding: 0;
+    text-transform: uppercase;
+    display: inline;
+    font-size: 14px;
+    font-weight: 600;
+    border-bottom: 0;
+  }
+
+  .csnews-item .csnews-date .csnews-month:after {
+    content: "\00a0\00a0\2014\00a0";
+  }
+
+  .csnews-item .csnews-date .csnews-day {
+    display: inline;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 100%;
+  }
+
+  .csnews-item .csnews-content {
+    width: 100%;
+    font-size: 15px;
+  }
+
+}
+
+.csnade {
+  border: 1px solid rgba(255, 255, 255, .1);
+  padding: 10px 15px 15px 20px;
+}
+
+.csnade-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+}
+
+.csnade-list li {
+  margin-bottom: 5px;
+}
+
+.csnade-list li i {
+  width: 26px;
+  margin-right: 5px;
+  font-size: 20px;
+  text-align: center;
+  vertical-align: bottom
+}
+
+.csnade-list li span:before {
+  content: "\00a0\2014\00a0";
+}
+
+.csnade-list li span {
+  color: #ccc;
+  font-size: 13px;
+}
