@@ -59,7 +59,26 @@ class NadesController extends BaseController {
 
     public function showNadesInMap(Map $map)
     {
-        return $map;
+        $nades = array();
+        $nadeTypes = Nade::getNadeTypes();
+
+        foreach ($map->nades as $nade) {
+            foreach ($nadeTypes as $nadeTypeKey => $nadeType) {
+                if ($nade->type == $nadeTypeKey) {
+                    $nades[$nadeTypeKey][] = $nade;
+                }
+            }
+        }
+
+        // return $nades;
+
+        $viewData = array(
+            'heading'   => "$map->name Nades",
+            'map'       => $map,
+            'nades'     => $nades,
+            'nadeTypes' => $nadeTypes,
+        );
+        return View::make('maps.single-map')->with($viewData);
     }
 
     public function showMapAtPopSpot(Map $map, $pop)
