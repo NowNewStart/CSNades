@@ -6,63 +6,46 @@ class UsersController extends BaseController {
 
     public function addUser()
     {
-        $rules = array(
-            'username'  => 'required|alpha_num|between:6,20|unique:users',
-            'password'  => 'required|min:8',
-            'password2' => 'required|same:password',
-            'email'     => 'required|email|unique:users',
-        );
-
-        $messages = array(
-            'password2.required' => 'The password confirmation is required.',
-            'password2.same' => 'The password and password confirmation must match.',
-        );
-
-        $validator = Validator::make(Input::all(), $rules, $messages);
-        
-        if ($validator->fails()) {
-            return Redirect::action('UsersController@showAddUserForm')
-                ->withFlashDanger('There were some errors with the form.')
-                ->withErrors($validator)
-                ->withInput();
-        }
-
         $userArray = array(
             'username' => Input::get('username'),
             'password' => Hash::make(Input::get('password')),
             'email'    => Input::get('email'),
         );
 
-        $user = User::create($userArray);
+        $user = new User($userArray);
+        $user->setAddUserValidation()->setInput(Input::all());
+        // dd($user->getRules());
 
-        if ($user->save()) {
-            $confirmation = new Confirmation;
-            $confirmation->code = str_random(32);
-            $confirmation->user()->associate($user);
-
-            if ($confirmation->save()) {
-                $viewData = array(
-                    'username' => $user->username,
-                    'token' => $confirmation->code,
-                );
-
-                Mail::send('emails.users.confirm', $viewData, function($message) use ($user) {
-                    $message->from('support@csnades.com', 'CSNades Team');
-                    $message->to($user->email, $user->username);
-                    $message->subject('CSNades Account Confirmation');
-                });
-
-                $flashSuccess = 'You have been registered. Please check your email to verify your account.';
-                return Redirect::to('/')->withFlashSuccess($flashSuccess);
-            }
-
-            $flashWarning = 'You have been registered, but there was an error. Please notify an Administrator.';
-            return Redirect::to('/')->withFlashWarning($flashWarning);
-
+        if (!$user->save()) {
+            $flashDanger = 'There were some errors with your registration.';
+            return Redirect::action('UsersController@showAddUserForm')
+                                    ->withFlashDanger($flashDanger)
+                                    ->withErrors($user->getValidator())
+                                    ->withInput();
         }
 
-        $flashDanger = 'The user account was not saved. Please notify an Administrator.';
-        return Redirect::to('/')->withFlashDanger($flashDanger);
+        $confirmation = new Confirmation;
+        $confirmation->code = str_random(32);
+        $confirmation->user()->associate($user);
+
+        if (!$confirmation->save()) {
+            $flashWarning = 'You have been registered, but there was an error. Please notify an Administrator.';
+            return Redirect::to('/')->withFlashDanger($flashWarning);
+        }
+
+        $viewData = array(
+            'username' => $user->username,
+            'token' => $confirmation->code,
+        );
+
+        Mail::send('emails.users.confirm', $viewData, function($message) use ($user) {
+            $message->from('support@csnades.com', 'CSNades Team');
+            $message->to($user->email, $user->username);
+            $message->subject('CSNades Account Confirmation');
+        });
+
+        $flashSuccess = 'You have been registered. Please check your email to verify your account.';
+        return Redirect::to('/')->withFlashSuccess($flashSuccess);
     }
 
     public function attemptLogin()
