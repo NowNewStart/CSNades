@@ -1,11 +1,10 @@
 @extends('layouts.main')
 
 @section('content')
-    @foreach($nadeTypes as $nadeTypeKey => $nadeType)
-    @if (isset($nades[$nadeTypeKey]) > 0)
-    {{ $nadeType['label']}}:
+    @foreach($nades as $nadeTypeKey => $nadesByType)
+    {{ Nade::getNadeTypeLabel($nadeTypeKey) }}:
     <div class="row">
-        @foreach($nades[$nadeTypeKey] as $nade)
+        @foreach($nadesByType as $nade)
         <div class="col-sm-4">
             Title: {{ $nade->title }}
             <br>
@@ -23,6 +22,5 @@
         </div>
         @endforeach
     </div>
-    @endif
     @endforeach
 @stop
