@@ -8,10 +8,10 @@
         <a href="{{ action('NadesController@showNadesInMap', array('slug' => $map->slug)) }}" class="map-list" style="background-image: url('{{ $map->image }}')">
           <div class="map-title">{{ $map->name }}</div>
           <ul class="map-info">
-            @foreach (Nade::getNadeTypes() as $nadeKey => $nade)
+            @foreach (Nade::getNadeTypes() as $nadeTypeKey => $nadeType)
             <li>
-              {{ $map->nades()->where('type', $nadeKey)->count() }}
-              <i class="{{ $nade['class'] }}" title="{{ $nade['label'] }}"></i>
+              {{ $map->nades()->where('type', $nadeTypeKey)->count() }}
+              <i class="{{ $nadeType['class'] }}" title="{{ $nadeType['label'] }}"></i>
             </li>
             @endforeach
           </ul>
