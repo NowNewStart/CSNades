@@ -40,27 +40,15 @@
             <div class="csnade">
                 <h4>Recent Nades</h4>
                 <ul class="csnade-list">
+                    @foreach($nades as $nade)
                     <li>
                         <a href="#">
-                            <i class="fa fa-soundcloud" title="Smoke Grenade"></i>
-                            CT base smoke from Short
-                            <span>Dust 2</span>
+                            <i class="{{ Nade::getNadeIcon($nade->type) }}" title="{{ Nade::getNadeTypeLabel($nade->type) }}"></i>
+                            {{ $nade->title }}
+                            <span>{{ $nade->map->name }}</span>
                         </a>
                     </li>
-                    <li>
-                        <a href="#">
-                            <i class="fa fa-bomb" title="High Explosive Grenade"></i>
-                            EZ Grenade to boiler
-                            <span>Inferno</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <i class="fa fa-eye-slash" title="Flashbang"></i>
-                            Popflash into cat as T
-                            <span>Dust 2</span>
-                        </a>
-                    </li>
+                    @endforeach
                 </ul>
             </div>
         </div>

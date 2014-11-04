@@ -22,6 +22,17 @@ class HomeController extends BaseController {
 
     public function getIndex()
     {
-        return View::make('home.home');
+        $nades = Nade::where('approved_at', '>', '2014-10-13')
+                        ->orderBy('approved_at', 'desc')
+                        ->orderBy('created_at', 'desc')
+                        ->orderBy('id', 'desc')
+                        ->limit(10)
+                        ->get();
+
+        $viewData = array(
+            'nades' => $nades,
+        );
+        
+        return View::make('home.home')->with($viewData);
     }
 }
