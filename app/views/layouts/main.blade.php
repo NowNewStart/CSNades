@@ -140,6 +140,9 @@
                         <li>
                             <a href="#"  data-toggle="modal" data-target="#about">About</a>
                         </li>
+                        <li>
+                            <a href="{{ action('HomeController@showFeatures') }}" >Features</a>
+                        </li>
                     </ul>
                 </div>
             </div>
