@@ -10,7 +10,7 @@
             <br>
             YouTube: {{ $nade->youtube }}
             <br>
-            Type: <i class="{{ Nade::getGrenadeIcon($nade->type) }}" title="{{ Nade::getNadeTypeLabel($nade->type) }}"></i>
+            Type: <i class="{{ Nade::getNadeIcon($nade->type) }}" title="{{ Nade::getNadeTypeLabel($nade->type) }}"></i>
             <br>
             Working: {{ ($nade->is_working) ? "Yes" : "No" }}
             <br>

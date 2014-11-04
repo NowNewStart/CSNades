@@ -50,7 +50,7 @@ class Nade extends Eloquent {
         return self::$nadeTypes[$nadeType]['label'];
     }
 
-    public static function getGrenadeIcon($nadeType)
+    public static function getNadeIcon($nadeType)
     {
         return self::$nadeTypes[$nadeType]['class'];
     }
