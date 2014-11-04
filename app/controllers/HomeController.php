@@ -1,5 +1,7 @@
 <?php
 
+use GuzzleHttp\Client;
+
 class HomeController extends BaseController {
 
 	/*
@@ -34,5 +36,19 @@ class HomeController extends BaseController {
         );
         
         return View::make('home.home')->with($viewData);
+    }
+
+    public function showFeatures()
+    {
+        $endpoint = "https://gitlab.com/api/v3/projects/104982/issues?labels=Feature&state=opened";
+        $options  = array('headers' => array('PRIVATE-TOKEN' => getenv('gitlab_api_key')));
+        $client   = new Client();
+        $features = $client->get($endpoint, $options)->json();
+        $viewData = array(
+            'heading'  => 'Requested Features',
+            'features' => $features,
+        );
+
+        return View::make('home.features')->with($viewData);
     }
 }

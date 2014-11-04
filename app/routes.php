@@ -19,6 +19,7 @@ Route::bind('map', function($value, $route) {
 });
 
 Route::get('/', array('as' => 'home', 'uses' => 'HomeController@getIndex'));
+Route::get('features', 'HomeController@showFeatures');
 
 Route::get('env', function(){
     return App::environment();
