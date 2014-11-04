@@ -418,6 +418,10 @@ textarea.form-control {
   text-align: justify;
 }
 
+.csnews-item .csnews-footer {
+  display: none;
+}
+
 @media (max-width: 768px) {
   .csnews-item .csnews-title {
     display: block;
