@@ -22,8 +22,6 @@ class User extends BaseModel implements UserInterface, RemindableInterface {
         'username', 'password', 'email', 'is_mod', 'is_admin', 'active',
     );
 
-    protected $rules = array();
-
     protected $messages = array(
         'password2.required' => 'The password confirmation is required.',
         'password2.same' => 'The password and password confirmation must match.',
