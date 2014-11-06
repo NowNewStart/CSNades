@@ -112,4 +112,15 @@ class NadesController extends BaseController {
 
         return View::make('nades.nade-form')->with($viewData);
     }
+
+    public function showUnapprovedNades()
+    {
+        $nades    = Nade::where('approved_at', '<=', '2014-10-13')->get();
+        $viewData = array(
+            'heading' => 'Unapproved Nades',
+            'nades'   => $nades,
+        );
+
+        return View::make('nades.ungrouped')->with($viewData);
+    }
 }
