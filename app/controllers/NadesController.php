@@ -36,9 +36,16 @@ class NadesController extends BaseController {
             $nade->approved_at = $nade->freshTimestamp();
         }
 
-        if ($nade->save()) {
-            Session::flash('flashSuccess', 'The nade has been saved!');
-            Redirect::action('NadesController@showNadeForm');
+        // if ($nade->save()) {
+        //     Session::flash('flashSuccess', 'The nade has been saved!');
+        //     Redirect::action('NadesController@showNadeForm');
+        // }
+        
+        if (!$nade->save()) {
+            return Redirect::action('NadesController@showNadeForm')
+                    ->withFlashDanger('There were some problems with your nade.')
+                    ->withErrors($nade->getValidator())
+                    ->withInput();
         }
 
         $viewData = array(
@@ -48,8 +55,11 @@ class NadesController extends BaseController {
             'popSpots'  => Nade::getPopSpots(),
         );
 
-        Session::flash('flashError', 'The nade was not saved!');
-        return View::make('nades.nade-form')->with($viewData);
+        return Redirect::action('NadesController@showNadeForm')
+                ->withFlashSuccess('Your nade has been saved.');
+
+        // Session::flash('flashError', 'The nade was not saved!');
+        // return View::make('nades.nade-form')->with($viewData);
     }
 
     public function deleteNade()

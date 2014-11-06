@@ -4,15 +4,16 @@
         {{ Form::open(array('method' => 'post', 'action' => 'NadesController@saveNade', 'class' => 'form-horizontal')) }}
             <div class="row">
                 <div class="col-xs-12 col-sm-4 col-sm-offset-2">
-                    <div class="form-group">
+                    <div class="form-group {{ $errors->has('title') ? 'has-error' : '' }}">
                         <label for="title" class="col-sm-12">Nade Title</label>
                         <div class="col-sm-12">
-                            <input type="text" name="title" id="title" placeholder="Title" class="form-control">
+                            <input type="text" name="title" id="title" placeholder="Title" class="form-control" value="{{ Input::get('title') }}">
+                            {{ $errors->first('title', '<span class="help-block">:message</span>') }}
                         </div>
                     </div>
                 </div>
                 <div class="col-xs-12 col-sm-4">
-                    <div class="form-group">
+                    <div class="form-group {{ $errors->has('map') ? 'has-error' : '' }}">
                         <label for="map" class="col-sm-12">Map</label>
                         <div class="col-sm-12">
                             <select name="map" id="map" class="form-control">
@@ -20,13 +21,14 @@
                                 <option value="{{ $map->id }}">{{ $map->name }}</option>
                                 @endforeach
                             </select>
+                            {{ $errors->first('map', '<span class="help-block">:message</span>') }}
                         </div>
                     </div>
                 </div>
             </div>
             <div class="row">
                 <div class="col-xs-12 col-sm-4 col-sm-offset-2">
-                    <div class="form-group">
+                    <div class="form-group {{ $errors->has('pop_spot') ? 'has-error' : '' }}">
                         <label for="pop-spot" class="col-sm-12">Pop Spot</label>
                         <div class="col-sm-12">
                             <select name="pop_spot" id="pop-spot" class="form-control">
@@ -34,23 +36,26 @@
                                 <option value="{{ $popSpot }}">{{ $popName }}</option>
                                 @endforeach
                             </select>
+                            {{ $errors->first('pop_spot', '<span class="help-block">:message</span>') }}
                         </div>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group {{ $errors->has('imgur_album') ? 'has-error' : '' }}">
                         <label for="imgur-album" class="col-sm-12">Imgur Link</label>
                         <div class="col-sm-12">
-                            <input type="text" name="imgur_album" id="imgur-album" placeholder="http://imgur.com/a/album" class="form-control">
+                            <input type="text" name="imgur_album" id="imgur-album" placeholder="http://imgur.com/a/album" class="form-control" value="{{ Input::get('imgur_album') }}">
+                            {{ $errors->first('imgur_album', '<span class="help-block">:message</span>') }}
                         </div>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group {{ $errors->has('youtube') ? 'has-error' : '' }}">
                         <label for="youtube" class="col-sm-12">YouTube Link</label>
                         <div class="col-sm-12">
-                            <input type="text" name="youtube" id="youtube" placeholder="https://www.youtube.com/watch?v=video" class="form-control">
+                            <input type="text" name="youtube" id="youtube" placeholder="https://www.youtube.com/watch?v=video" class="form-control" value="{{ Input::get('youtube') }}">
+                            {{ $errors->first('youtube', '<span class="help-block">:message</span>') }}
                         </div>
                     </div>
                 </div>
                 <div class="col-xs-12 col-sm-4">
-                    <div class="form-group">
+                    <div class="form-group {{ $errors->has('type') ? 'has-error' : '' }}">
                         <label class="col-sm-12">Nade Type</label>
                         <div class="col-xs-12">
                             @foreach (Nade::getNadeTypes() as $nadeTypeKey => $nadeType)
@@ -61,6 +66,7 @@
                                 </label>
                             </div>
                             @endforeach
+                            {{ $errors->first('type', '<span class="help-block">:message</span>') }}
                         </div>
                     </div>
                     <div class="form-group">
@@ -70,8 +76,10 @@
                         </div>
                     </div>
                 </div>
+            </div>
+            <div class="row">
                 <div class="col-xs-12 col-sm-4 col-sm-offset-2">
-                    <div class="form-group">
+                    <div class="form-group {{ $errors->has('is_working') ? 'has-error' : '' }}">
                         <div class="col-xs-12">
                             <div class="checkbox">
                                 <label>
@@ -80,6 +88,8 @@
                                 </label>
                             </div>
                         </div>
+                    </div>
+                    <div class="form-group {{ $errors->has('is_approved') ? 'has-error' : '' }}">
                         @if($user->is_mod)
                         <div class="col-xs-12">
                             <div class="checkbox">
