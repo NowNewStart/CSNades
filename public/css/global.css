@@ -532,6 +532,10 @@ textarea.form-control {
   height: 41px;
 }
 
+.map-display .panel .panel-footer a {
+  color: #92BCE0;
+}
+
 .map-display .panel .panel-heading,
 .map-display .panel .panel-footer {
   background: rgba(59, 67, 77, 0.8);

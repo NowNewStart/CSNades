@@ -43,7 +43,12 @@
                         </div>
                     </div>
                     <div class="panel-footer">
-                        <small>{{{ $nade->updated_at }}}</small>
+                        <small>
+                            <div class="pull-right">
+                                <a href="#">Edit</a>
+                            </div>
+                            {{{ $nade->updated_at }}}
+                        </small>
                     </div>
                 </div>
             </div>
