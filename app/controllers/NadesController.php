@@ -86,7 +86,7 @@ class NadesController extends BaseController {
             'nades'     => $nades,
             'nadeTypes' => $nadeTypes,
         );
-        return View::make('maps.single-map-ungrouped')->with($viewData);
+        return View::make('nades.ungrouped')->with($viewData);
     }
 
     public function showMapAtPopSpot(Map $map, $pop)
