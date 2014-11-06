@@ -59,16 +59,6 @@ Route::filter('auth.admin', function()
     if (!Auth::user()->is_admin)
     {
         App::abort(404);
-        // if (Request::ajax())
-        // {
-        //     return Response::make('Unauthorized', 401);
-        // }
-        // else
-        // {
-        //     Session::flash('flashDanger', 'You do not have permission to access this page.');
-        //     return Redirect::home();
-        //     // return "You do not have permission to view this page";
-        // }
     }
 });
 
@@ -77,16 +67,6 @@ Route::filter('auth.mod', function()
     if (!Auth::user()->is_mod)
     {
         App::abort(404);
-        // if (Request::ajax())
-        // {
-        //     return Response::make('Unauthorized', 401);
-        // }
-        // else
-        // {
-        //     Session::flash('flashDanger', 'You do not have permission to access this page.');
-        //     return Redirect::home();
-        //     // return "You do not have permission to view this page";
-        // }
     }
 });
 
