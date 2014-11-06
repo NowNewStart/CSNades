@@ -222,7 +222,7 @@
     <script src="/js/equalizer.js"></script>
     <script>
         $('.map-display > div').eqHeights({parentSelector:'.map-display'});
-        $('.features .item').eqHeights({parentSelector:'.features'});
+        $('.features > div').eqHeights({parentSelector:'.features'});
     </script>
     <script>
         (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
