@@ -69,22 +69,29 @@ class NadesController extends BaseController {
 
     public function showNadesInMap(Map $map)
     {
-        $nades = array();
-        $nadeTypes = Nade::getNadeTypes();
+        // Grouped Nades
+        // $nades = array();
+        // $nadeTypes = Nade::getNadeTypes();
 
-        foreach ($map->nades as $nade) {
-            foreach ($nadeTypes as $nadeTypeKey => $nadeType) {
-                if ($nade->type == $nadeTypeKey) {
-                    $nades[$nadeTypeKey][] = $nade;
-                }
-            }
-        }
+        // foreach ($map->nades as $nade) {
+        //     foreach ($nadeTypes as $nadeTypeKey => $nadeType) {
+        //         if ($nade->type == $nadeTypeKey) {
+        //             $nades[$nadeTypeKey][] = $nade;
+        //         }
+        //     }
+        // }
+
+        $nades = $map->nades()->where('approved_at', '>', '2014-10-13')
+                              ->orderBy('approved_at', 'desc')
+                              ->orderBy('created_at', 'desc')
+                              ->orderBy('id', 'desc')
+                              ->get();
 
         $viewData = array(
             'heading'   => "$map->name Nades",
             'map'       => $map,
             'nades'     => $nades,
-            'nadeTypes' => $nadeTypes,
+            // 'nadeTypes' => $nadeTypes, // For grouped nades
         );
         return View::make('nades.ungrouped')->with($viewData);
     }

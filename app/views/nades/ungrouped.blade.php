@@ -3,7 +3,7 @@
 @section('content')
     <div class="row">
         <div class="map-display ungrouped">
-            @foreach($map->nades as $nade)
+            @foreach($nades as $nade)
             <div class="col-lg-3 col-md-4 col-sm-6">
                 <div class="panel panel-default">
                     <div class="panel-wrap">
