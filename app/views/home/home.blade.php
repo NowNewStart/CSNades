@@ -14,7 +14,7 @@
                         We made it, the public beta is finally here! Feel free to start browsing, or create an account and add some nades. Since the site is still in beta, you will likely notice some features that do not work. This is normal, but rest assured that the website is being worked on daily with the intention of getting all the core parts of the site finished first. You can find a full list of requested features <a href="{{ action('HomeController@showFeatures') }}">here</a>, or on the page footer.
                     </div>
                     <div class="csnews-footer">
-                        Posted By <a href="#">FatBoyXPC</a>
+                        Posted By <a>admin</a>
                     </div>
                 </div>
                 <div class="csnews-item">
@@ -27,7 +27,7 @@
                         The development team worked hard in the previous weeks to get CSNades to a usable beta. The primary goal was to allow limited users to sign up and add some nades to get  head start on the data. While the other developers were working on the back end, <a href="http://www.reddit.com/user/jung3o/">/u/jung3o</a> gave the front end a much needed facelift. With moderators and dedicated "nade adders" in place, this project was on the final steps toward a public beta.
                     </div>
                     <div class="csnews-footer">
-                        Posted By <a href="#">FatBoyXPC</a>
+                        Posted By <a>admin</a>
                     </div>
                 </div>
                 <div class="csnews-item">
@@ -40,7 +40,7 @@
                         An inspired user from the thread that started this project, <a href="http://www.reddit.com/user/NowNewStart">/u/NowNewStart</a>, decided to mock up a proof of concept functional design. He posted this thread to Reddit, and again, it received quite a warm welcome. A new steam group is created and the collaborators from the previous thread had come together to take from a concept to a fully functional project.
                     </div>
                     <div class="csnews-footer">
-                        Posted By <a href="#">FatBoyXPC</a>
+                        Posted By <a>admin</a>
                     </div>
                 </div>
                 <div class="csnews-item">
@@ -53,7 +53,7 @@
                         On October 13th, 2014 <a href="http://www.reddit.com/user/gas4u">/u/gas4u</a> created a thread asking for a website with searchable grenades for CS:GO. The thread was well received, and a few different users teamed up to collaborate on the project. There were several features suggested in the thread by users, and even great alternative websites to look at for inspiration. For a more complete read, see the <a href="http://www.reddit.com/r/GlobalOffensive/comments/2j4xvr/site_developers_out_there_would_it_be_possible_to/">thread on Reddit</a>.
                     </div>
                     <div class="csnews-footer">
-                        Posted By <a href="#">FatBoyXPC</a>
+                        Posted By <a>admin</a>
                     </div>
                 </div>
             </div>
