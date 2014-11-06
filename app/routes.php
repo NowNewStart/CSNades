@@ -36,21 +36,21 @@ Route::get('maps', 'MapsController@showAllMaps');
 Route::get('nades', 'NadesController@showSomeNades');
 
 // Users
-Route::get('login', 'UsersController@showLoginForm');
-Route::post('login', 'UsersController@attemptLogin');
-Route::get('logout', 'UsersController@logout');
-Route::get('register', 'UsersController@showAddUserForm');
-Route::post('register', array('before' => 'csrf', 'uses' => 'UsersController@addUser'));
-Route::get('users/confirm/{code}', 'UsersController@confirmUser');
+Route::get('login', array('as' => 'get.users.login', 'uses' => 'UsersController@showLoginForm'));
+Route::post('login', array('as' => 'post.users.login', 'uses' => 'UsersController@attemptLogin'));
+Route::get('logout', array('as' => 'get.users.logout', 'uses' => 'UsersController@logout'));
+Route::get('register', array('as' => 'get.users.register', 'uses' => 'UsersController@showAddUserForm'));
+Route::post('register', array('as' => 'post.users.register', 'before' => 'csrf', 'uses' => 'UsersController@addUser'));
+Route::get('users/confirm/{code}', array('as' => 'get.users.confirm', 'uses' => 'UsersController@confirmUser'));
 
 // Users must be logged in to access these routes
 Route::group(array('before' => 'auth'), function() {
     // Nades
-    Route::get('nades/add', 'NadesController@showNadeForm');
-    Route::post('nades/add', array('before' => 'csrf', 'uses' => 'NadesController@saveNade'));
+    Route::get('nades/add', array('as' => 'get.nades.add', 'uses' => 'NadesController@showNadeForm'));
+    Route::post('nades/add', array('as' => 'post.nades.add', 'before' => 'csrf', 'uses' => 'NadesController@saveNade'));
     
     // Users
-    Route::get('profile', 'UsersController@showProfile');
+    Route::get('profile', array('as' => 'get.users.profile', 'uses' => 'UsersController@showProfile'));
 
 
 
@@ -67,8 +67,8 @@ Route::group(array('before' => 'auth'), function() {
     // Users must be a mod to access these routes
     Route::group(array('before' => 'auth.mod'), function() {
         // Nades
-        Route::get('nades/edit/{nadeId}', 'NadesController@showNadeForm');
-        Route::post('nades/edit/{nadeId}', array('as' => 'editNade', 'uses' => 'NadesController@saveNade'));
-        Route::get('nades/unapproved', 'NadesController@showUnapprovedNades');
+        Route::get('nades/edit/{nadeId}', array('as' => 'get.nades.edit', 'uses' => 'NadesController@showNadeForm'));
+        Route::post('nades/edit/{nadeId}', array('as' => 'post.nades.edit', 'uses' => 'NadesController@saveNade'));
+        Route::get('nades/unapproved', array('as' => 'get.nades.unapproved', 'uses' => 'NadesController@showUnapprovedNades'));
     });
 });
