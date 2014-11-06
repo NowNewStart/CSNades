@@ -1,6 +1,6 @@
 <?php
 
-class Nade extends Eloquent {
+class Nade extends BaseModel {
 
     protected $table = 'nades';
 
@@ -35,6 +35,18 @@ class Nade extends Eloquent {
         'other'  => 'Other',
     );
 
+    protected $messages = array(
+        'pop_spots' => 'You must select a valid option from the list',
+        'messages'  => 'You must select a valid option from the list',
+    );
+
+    public function __construct()
+    {
+        parent::__construct();
+
+        $this->setNadeValidation();
+    }
+
     public static function getNadeTypes()
     {
         return self::$nadeTypes;
@@ -60,6 +72,11 @@ class Nade extends Eloquent {
         return self::$popSpots;
     }
 
+    public static function getPopSpotKeys()
+    {
+        return array_keys(self::$popSpots);
+    }
+
     public function approved_by()
     {
         return $this->belongsTo('User', 'approved_by');
@@ -73,5 +90,17 @@ class Nade extends Eloquent {
     public function user()
     {
         return $this->belongsTo('User');
+    }
+
+    public function setNadeValidation()
+    {
+        $this->setRule('title', 'required')
+             ->setRule('pop_spot', 'required|in:' . implode(',', $this->getPopSpotKeys()))
+             ->setRule('imgur_album', 'url|required_without:youtube')
+             ->setRule('youtube', 'url')
+             ->setRule('is_working', 'boolean')
+             ->setRule('is_approved', 'boolean')
+             ->setRule('maps', 'exists:maps')
+             ->setRule('type', 'required|in:' . implode(',', $this->getNadeTypeKeys()));
     }
 }
