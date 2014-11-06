@@ -37,24 +37,6 @@
                                 <span class="label">
                                     {{ $tag }}
                                 </span>
-                                <span class="label">
-                                    {{ $tag }}
-                                </span>
-                                <span class="label">
-                                    {{ $tag }}
-                                </span>
-                                <span class="label">
-                                    {{ $tag }}
-                                </span>
-                                <span class="label">
-                                    {{ $tag }}
-                                </span>
-                                <span class="label">
-                                    {{ $tag }}
-                                </span>
-                                <span class="label">
-                                    {{ $tag }}
-                                </span>
                                 @endif
                                 @endforeach
                             </div>
