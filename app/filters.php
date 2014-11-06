@@ -43,7 +43,7 @@ Route::filter('auth', function()
 		}
 		else
 		{
-			return Redirect::guest('login');
+			return Redirect::guest('login')->withFlashDanger('You must be logged in to access this page.');
 		}
 	}
 });
@@ -58,16 +58,17 @@ Route::filter('auth.admin', function()
 {
     if (!Auth::user()->is_admin)
     {
-        if (Request::ajax())
-        {
-            return Response::make('Unauthorized', 401);
-        }
-        else
-        {
-            Session::flash('flashDanger', 'You do not have permission to access this page.');
-            return Redirect::home();
-            // return "You do not have permission to view this page";
-        }
+        App::abort(404);
+        // if (Request::ajax())
+        // {
+        //     return Response::make('Unauthorized', 401);
+        // }
+        // else
+        // {
+        //     Session::flash('flashDanger', 'You do not have permission to access this page.');
+        //     return Redirect::home();
+        //     // return "You do not have permission to view this page";
+        // }
     }
 });
 
@@ -75,16 +76,17 @@ Route::filter('auth.mod', function()
 {
     if (!Auth::user()->is_mod)
     {
-        if (Request::ajax())
-        {
-            return Response::make('Unauthorized', 401);
-        }
-        else
-        {
-            Session::flash('flashDanger', 'You do not have permission to access this page.');
-            return Redirect::home();
-            // return "You do not have permission to view this page";
-        }
+        App::abort(404);
+        // if (Request::ajax())
+        // {
+        //     return Response::make('Unauthorized', 401);
+        // }
+        // else
+        // {
+        //     Session::flash('flashDanger', 'You do not have permission to access this page.');
+        //     return Redirect::home();
+        //     // return "You do not have permission to view this page";
+        // }
     }
 });
 
