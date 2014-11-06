@@ -31,10 +31,14 @@
                             @endif
                         </div>
                         <div class="tags">
+                            @foreach(explode(',', $nade->tags) as $tag)
+                            @if(!empty($tag))
                             <span class="label label-primary">
                                 <i class="glyphicon glyphicon-tag"></i>
-                                {{ $nade->tags }}
+                                {{ $tag }}
                             </span>
+                            @endif
+                            @endforeach
                         </div>
                     </div>
                     <div class="panel-footer">
