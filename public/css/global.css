@@ -340,6 +340,10 @@ textarea.form-control {
   color: #f5e5e4;
 }
 
+.text-success {
+  color: #5bac5d;
+}
+
 .btn-default {
   background: rgba(255, 255, 255, 0.7);
   box-shadow: 0 0 0;
@@ -492,4 +496,78 @@ textarea.form-control {
 .csnade-list li span {
   color: #ccc;
   font-size: 13px;
+}
+
+.map-display {
+
+}
+
+.map-display .panel {
+  border-radius: 0;
+  background: rgba(59, 67, 77, 0.4);
+  border-color: rgba(255, 255, 255, .1);
+}
+
+.map-display .panel .panel-heading,
+.map-display .panel .panel-footer {
+  background: rgba(59, 67, 77, 0.8);
+  border-color: rgba(255, 255, 255, .1);
+  color: #fff;
+}
+
+.map-display .panel .panel-title {
+  display: block;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.map-display .panel .author {
+  padding: 5px 0 0;
+}
+
+.map-display .panel .panel-body {
+  padding: 0 15px;
+}
+
+.map-display .tutorial a:before {
+    content: '';
+    display: inline-block;
+    vertical-align: middle;
+    height: 100%;
+}
+
+.map-display .tutorial a {
+  padding: 10px 0;
+  height: 84px;
+}
+
+.map-display .tutorial a:hover {
+  text-decoration: none;
+  background: rgba(255, 255, 255, .05);
+}
+
+.map-display .tutorial img {
+  max-height: 64px;
+  max-width: 64px;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.map-display .tags {
+  padding: 8px 0 12px;
+}
+
+.map-display .tags span {
+  border-radius: 1px;
+  padding: 4px 5px;
+  font-weight: 400;
+}
+
+.map-display .tags span i {
+  vertical-align: -1px;
+}
+
+.map-display.ungrouped {
+
 }

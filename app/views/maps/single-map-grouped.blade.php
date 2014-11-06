@@ -6,19 +6,22 @@
     <div class="row">
         @foreach($nadesByType as $nade)
         <div class="col-sm-4">
-            Title: {{ $nade->title }}
+            Title: {{{ $nade->title }}}
             <br>
-            Imgur: {{ $nade->imgur_album }}
+            Tutorial:
             <br>
-            YouTube: {{ $nade->youtube }}
+            <a href="{{{ $nade->imgur_album }}}" target="_blank"><img src="/img/imgur.png"></a>
+            <a href="{{{ $nade->youtube }}}" target="_blank"><img src="/img/youtube.png"></a>
             <br>
-            Working: {{ ($nade->is_working) ? "Yes" : "No" }}
+            YouTube: {{{ $nade->youtube }}}
             <br>
-            Tags: {{ $nade->tags }}
+            Working: {{{ ($nade->is_working) ? "Yes" : "No" }}}
             <br>
-            Submited By: {{ $nade->user->username }}
+            Tags: {{{ $nade->tags }}}
             <br>
-            Last Updated: {{ $nade->updated_at }}
+            Submited By: {{{ $nade->user->username }}}
+            <br>
+            Last Updated: {{{ $nade->updated_at }}}
         </div>
         @endforeach
     </div>
