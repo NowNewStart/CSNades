@@ -21,19 +21,19 @@ Route::bind('map', function($value, $route) {
 Route::get('/', array('as' => 'home', 'uses' => 'HomeController@getIndex'));
 Route::get('features', array('as' => 'get.features', 'uses' => 'HomeController@showFeatures'));
 
-Route::get('env', function(){
-    return App::environment();
-});
+// Route::get('env', function(){
+//     return App::environment();
+// });
 
 // Maps
 // Route::model('mapSlug', 'Map');
 
-Route::get('maps/{map}/{pop}', 'NadesController@showNadesInMapAtSpot');
-Route::get('maps/{map}', 'NadesController@showNadesInMap');
-Route::get('maps', 'MapsController@showAllMaps');
+// Route::get('maps/{map}/{pop}', 'NadesController@showNadesInMapAtSpot');
+// Route::get('maps/{map}', 'NadesController@showNadesInMap');
+// Route::get('maps', 'MapsController@showAllMaps');
 
 // Nades
-Route::get('nades', 'NadesController@showSomeNades');
+// Route::get('nades', 'NadesController@showSomeNades');
 
 // Users
 Route::get('login', array('as' => 'get.users.login', 'uses' => 'UsersController@showLoginForm'));
@@ -50,19 +50,19 @@ Route::group(array('before' => 'auth'), function() {
     Route::post('nades/add', array('as' => 'post.nades.add', 'before' => 'csrf', 'uses' => 'NadesController@saveNade'));
     
     // Users
-    Route::get('profile', array('as' => 'get.users.profile', 'uses' => 'UsersController@showProfile'));
+    // Route::get('profile', array('as' => 'get.users.profile', 'uses' => 'UsersController@showProfile'));
 
 
 
 
     // Users must be admin to access these routes
-    Route::group(array('before' => 'auth.admin'), function() {
-        // Maps
-        Route::get('maps/add', 'MapsController@showMapForm');
-        Route::post('maps/add', 'MapsController@saveMap');
-        Route::get('maps/edit/{mapId}', 'MapsController@showMapForm');
-        Route::post('maps/edit/{mapId}', 'MapsController@saveMap');
-    });
+    // Route::group(array('before' => 'auth.admin'), function() {
+    //     // Maps
+    //     Route::get('maps/add', 'MapsController@showMapForm');
+    //     Route::post('maps/add', 'MapsController@saveMap');
+    //     Route::get('maps/edit/{mapId}', 'MapsController@showMapForm');
+    //     Route::post('maps/edit/{mapId}', 'MapsController@saveMap');
+    // });
 
     // Users must be a mod to access these routes
     Route::group(array('before' => 'auth.mod'), function() {
