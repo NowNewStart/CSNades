@@ -14,7 +14,7 @@
                                 {{{ $nade->title }}}
                             </h3>
                             <div class="author">
-                                By <strong>{{{ $nade->user->username }}}</strong>
+                                By <a href="#">{{{ $nade->user->username }}}</a>
                             </div>
                         </div>
                         <div class="panel-body">

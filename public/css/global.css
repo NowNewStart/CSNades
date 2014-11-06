@@ -549,6 +549,11 @@ textarea.form-control {
   padding: 5px 0 0;
 }
 
+.map-display .panel .author a {
+  color: #92BCE0;
+  font-weight: 700;
+}
+
 .map-display .panel .panel-body {
   padding: 0 15px;
 }
