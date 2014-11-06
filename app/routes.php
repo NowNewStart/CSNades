@@ -50,15 +50,15 @@ Route::group(array('before' => 'auth'), function() {
     Route::post('nades/add', array('as' => 'post.nades.add', 'before' => 'csrf', 'uses' => 'NadesController@saveNade'));
     
     // Users
-    // Route::get('profile', array('as' => 'get.users.profile', 'uses' => 'UsersController@showProfile'));
+    Route::get('profile', array('as' => 'get.users.profile', 'uses' => 'UsersController@showProfile'));
 
 
 
 
     // Users must be admin to access these routes
     // Route::group(array('before' => 'auth.admin'), function() {
-    //     // Maps
-    //     Route::get('maps/add', 'MapsController@showMapForm');
+        // Maps
+        Route::get('maps/add', 'MapsController@showMapForm');
     //     Route::post('maps/add', 'MapsController@saveMap');
     //     Route::get('maps/edit/{mapId}', 'MapsController@showMapForm');
     //     Route::post('maps/edit/{mapId}', 'MapsController@saveMap');
