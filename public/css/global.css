@@ -508,6 +508,16 @@ textarea.form-control {
   border-color: rgba(255, 255, 255, .1);
 }
 
+.map-display .panel .panel-wrap {
+  height: 100%;
+  padding-bottom: 41px;
+  margin: 0 auto -41px;
+}
+
+.map-display .panel .panel-footer {
+  height: 41px;
+}
+
 .map-display .panel .panel-heading,
 .map-display .panel .panel-footer {
   background: rgba(59, 67, 77, 0.8);
@@ -516,6 +526,7 @@ textarea.form-control {
 }
 
 .map-display .panel .panel-title {
+  max-height: 35px;
   display: block;
   overflow: hidden;
 }
@@ -553,14 +564,20 @@ textarea.form-control {
 }
 
 .map-display .tags {
-  padding: 8px 0 12px;
+  max-height: 52px;
+  overflow: hidden;
+  text-align: center;
+  margin: 8px 0 12px;
 }
 
-.map-display .tags span {
+.map-display .tags .label {
+  display: inline-block;
+  background: rgba(66, 139, 202, .4);
   border-radius: 1px;
   padding: 4px 5px;
   font-weight: 400;
   margin-right: 5px;
+  margin-bottom: 5px;
 }
 
 .map-display .tags span i {
@@ -570,4 +587,26 @@ textarea.form-control {
 
 .map-display.ungrouped {
 
+}
+
+.features {
+
+}
+
+.features .item {
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, .1);
+  background: rgba(59, 67, 77, 0.3);
+  margin-top: -1px;
+  margin-left: -1px;
+  color: #fff;
+  padding-bottom: 15px;
+}
+
+.features .item h4 {
+  color: #fff;
+}
+
+.features .item h4 small {
+  color: #ccc;
 }

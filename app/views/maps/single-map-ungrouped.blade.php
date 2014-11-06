@@ -6,39 +6,58 @@
             @foreach($map->nades as $nade)
             <div class="col-lg-3 col-md-4 col-sm-6">
                 <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h3 class="panel-title">
-                            <i class="{{ ($nade->is_working) ? "glyphicon glyphicon-ok text-success" : "" }}"></i>
-                            <i class="{{ Nade::getNadeIcon($nade->type) }}" title="{{ Nade::getNadeTypeLabel($nade->type) }}"></i>
-                            {{ $nade->title }}
-                        </h3>
-                        <div class="author">
-                            By <strong>{{ $nade->user->username }}</strong>
+                    <div class="panel-wrap">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">
+                                <i class="{{ ($nade->is_working) ? "glyphicon glyphicon-ok text-success" : "" }}"></i>
+                                <i class="{{ Nade::getNadeIcon($nade->type) }}" title="{{ Nade::getNadeTypeLabel($nade->type) }}"></i>
+                                {{ $nade->title }}
+                            </h3>
+                            <div class="author">
+                                By <strong>{{ $nade->user->username }}</strong>
+                            </div>
                         </div>
-                    </div>
-                    <div class="panel-body">
-                        <div class="tutorial row text-center">
-                            @if(!empty($nade->imgur_album))
-                            <a class="col-xs-{{{ empty($nade->youtube) ? 12:6 }}}" href="{{{ $nade->imgur_album }}}" target="_blank">
-                                <img src="/img/imgur.png">
-                            </a>
-                            @endif
+                        <div class="panel-body">
+                            <div class="tutorial row text-center">
+                                @if(!empty($nade->imgur_album))
+                                <a class="col-xs-{{{ empty($nade->youtube) ? 12:6 }}}" href="{{{ $nade->imgur_album }}}" target="_blank">
+                                    <img src="/img/imgur.png">
+                                </a>
+                                @endif
 
-                            @if(!empty($nade->youtube))
-                            <a class="col-xs-{{{ empty($nade->imgur_album) ? 12:6 }}}" href="{{{ $nade->youtube }}}" target="_blank">
-                                <img src="/img/youtube.png">
-                            </a>
-                            @endif
-                        </div>
-                        <div class="tags">
-                            @foreach(explode(',', $nade->tags) as $tag)
-                            @if(!empty($tag))
-                            <span class="label label-primary">
-                                <i class="glyphicon glyphicon-tag"></i>
-                                {{ $tag }}
-                            </span>
-                            @endif
-                            @endforeach
+                                @if(!empty($nade->youtube))
+                                <a class="col-xs-{{{ empty($nade->imgur_album) ? 12:6 }}}" href="{{{ $nade->youtube }}}" target="_blank">
+                                    <img src="/img/youtube.png">
+                                </a>
+                                @endif
+                            </div>
+                            <div class="tags">
+                                @foreach(explode(',', $nade->tags) as $tag)
+                                @if(!empty($tag))
+                                <span class="label">
+                                    {{ $tag }}
+                                </span>
+                                <span class="label">
+                                    {{ $tag }}
+                                </span>
+                                <span class="label">
+                                    {{ $tag }}
+                                </span>
+                                <span class="label">
+                                    {{ $tag }}
+                                </span>
+                                <span class="label">
+                                    {{ $tag }}
+                                </span>
+                                <span class="label">
+                                    {{ $tag }}
+                                </span>
+                                <span class="label">
+                                    {{ $tag }}
+                                </span>
+                                @endif
+                                @endforeach
+                            </div>
                         </div>
                     </div>
                     <div class="panel-footer">
