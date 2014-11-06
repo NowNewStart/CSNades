@@ -68,7 +68,7 @@ Route::group(array('before' => 'auth'), function() {
     Route::group(array('before' => 'auth.mod'), function() {
         // Nades
         Route::get('nades/edit/{nadeId}', 'NadesController@showNadeForm');
-        Route::post('nades/edit/{nadeId}', 'NadesController@saveNade');
+        Route::post('nades/edit/{nadeId}', array('as' => 'editNade', 'uses' => 'NadesController@saveNade'));
         Route::get('nades/unapproved', 'NadesController@showUnapprovedNades');
     });
 });
