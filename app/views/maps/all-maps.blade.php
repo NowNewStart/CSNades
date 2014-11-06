@@ -10,7 +10,7 @@
           <ul class="map-info">
             @foreach (Nade::getNadeTypes() as $nadeTypeKey => $nadeType)
             <li>
-              {{ $map->nades()->where('type', $nadeTypeKey)->count() }}
+              {{ $map->nades()->where('type', $nadeTypeKey)->where('approved_at', '>', '2014-10-13')->count() }}
               <i class="{{{ $nadeType['class'] }}}" title="{{{ $nadeType['label'] }}}"></i>
             </li>
             @endforeach
