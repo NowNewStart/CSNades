@@ -602,17 +602,19 @@ textarea.form-control {
 }
 
 .features .item {
+  padding: 15px;
   overflow: hidden;
   border: 1px solid rgba(255, 255, 255, .1);
   background: rgba(59, 67, 77, 0.3);
-  margin-top: -1px;
-  margin-left: -1px;
   color: #fff;
   padding-bottom: 15px;
+  margin-bottom: 20px;
 }
 
 .features .item h4 {
   color: #fff;
+  padding: 0;
+  margin: 0 0 10px;
 }
 
 .features .item h4 small {
