@@ -66,8 +66,8 @@
                     <li>
                         <a href="#">
                             <i class="{{ Nade::getNadeIcon($nade->type) }}" title="{{ Nade::getNadeTypeLabel($nade->type) }}"></i>
-                            {{ $nade->title }}
-                            <span>{{ $nade->map->name }}</span>
+                            {{{ $nade->title }}}
+                            <span>{{{ $nade->map->name }}}</span>
                         </a>
                     </li>
                     @endforeach

@@ -123,7 +123,7 @@
             <div class="row">
                 <div class="col-xs-12">
                     @if(isset($heading))
-                    <h1>{{ $heading }}</h1>
+                    <h1>{{{ $heading }}}</h1>
                     <hr>
                     @endif
                     @yield('content')
@@ -163,7 +163,7 @@
                             <select class="form-control" name="map">
                                 <option>Select...</option>
                                 @foreach($maps as $map)
-                                <option value="{{ $map->slug }}">{{ $map->name }}</option>
+                                <option value="{{{ $map->slug }}}">{{{ $map->name }}}</option>
                                 @endforeach;
                             </select>
                         </div>

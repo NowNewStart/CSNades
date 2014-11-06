@@ -9,12 +9,12 @@
                     <div class="panel-wrap">
                         <div class="panel-heading">
                             <h3 class="panel-title">
-                                <i class="{{ ($nade->is_working) ? "glyphicon glyphicon-ok text-success" : "" }}"></i>
-                                <i class="{{ Nade::getNadeIcon($nade->type) }}" title="{{ Nade::getNadeTypeLabel($nade->type) }}"></i>
-                                {{ $nade->title }}
+                                <i class="{{{ ($nade->is_working) ? "glyphicon glyphicon-ok text-success" : "" }}}"></i>
+                                <i class="{{{ Nade::getNadeIcon($nade->type) }}}" title="{{{ Nade::getNadeTypeLabel($nade->type) }}}"></i>
+                                {{{ $nade->title }}}
                             </h3>
                             <div class="author">
-                                By <strong>{{ $nade->user->username }}</strong>
+                                By <strong>{{{ $nade->user->username }}}</strong>
                             </div>
                         </div>
                         <div class="panel-body">
@@ -35,7 +35,7 @@
                                 @foreach(explode(',', $nade->tags) as $tag)
                                 @if(!empty($tag))
                                 <span class="label">
-                                    {{ $tag }}
+                                    {{{ $tag }}}
                                 </span>
                                 @endif
                                 @endforeach
@@ -43,9 +43,7 @@
                         </div>
                     </div>
                     <div class="panel-footer">
-                        <div class="">
-                            <small>{{ $nade->updated_at }}</small>
-                        </div>
+                        <small>{{{ $nade->updated_at }}}</small>
                     </div>
                 </div>
             </div>
