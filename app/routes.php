@@ -29,8 +29,8 @@ Route::get('features', array('as' => 'get.features', 'uses' => 'HomeController@s
 // Route::model('mapSlug', 'Map');
 
 // Route::get('maps/{map}/{pop}', 'NadesController@showNadesInMapAtSpot');
-// Route::get('maps/{map}', 'NadesController@showNadesInMap');
-// Route::get('maps', 'MapsController@showAllMaps');
+Route::get('maps/{map}', array('as' => 'get.maps.nades', 'uses' => 'NadesController@showNadesInMap'));
+Route::get('maps', array('as' => 'get.maps.all', 'uses' => 'MapsController@showAllMaps'));
 
 // Nades
 // Route::get('nades', 'NadesController@showSomeNades');
