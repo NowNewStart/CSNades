@@ -32,7 +32,7 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <a class="navbar-brand" href="{{ action('HomeController@getIndex') }}">CSNades
+                        <a class="navbar-brand" href="{{ route('home') }}">CSNades
                             <span class="label label-primary">BETA</span>
                         </a>
                     </div>
@@ -45,10 +45,10 @@
                             </li>
                             @endif
                             <li>
-                                <a href="{{ action('MapsController@showAllMaps') }}">Browse Maps</a>
+                                <a href="{{ route('get.maps.all') }}">Browse Maps</a>
                             </li>
                             <li>
-                                <a href="{{ action('NadesController@showNadeForm') }}">Add Nade</a>
+                                <a href="{{ route('post.nades.add') }}">Add Nade</a>
                             </li>
                         </ul>
                         <ul class="nav navbar-nav navbar-right">
@@ -63,14 +63,14 @@
                               @include('partials.authenticated-menu')
                             </li>
                             <li class="visible-xs">
-                              <a href="{{ action('UsersController@logout') }}">Logout</a>
+                              <a href="{{ route('get.users.logout') }}">Logout</a>
                             </li>
                             @else
                             <li>
-                                <a href="{{ action('UsersController@showLoginForm') }}">Login</a>
+                                <a href="{{ route('get.users.login') }}">Login</a>
                             </li>
                             <li>
-                                <a href="{{ action('UsersController@showAddUserForm') }}">Register</a>
+                                <a href="{{ route('get.users.register') }}">Register</a>
                             </li>
                         @endif
                         </ul>
@@ -141,7 +141,7 @@
                             <a href="#"  data-toggle="modal" data-target="#about">About</a>
                         </li>
                         <li>
-                            <a href="{{ action('HomeController@showFeatures') }}" >Features</a>
+                            <a href="{{ route('get.features') }}" >Features</a>
                         </li>
                     </ul>
                 </div>

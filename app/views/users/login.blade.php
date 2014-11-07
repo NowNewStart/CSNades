@@ -29,7 +29,7 @@
           <div class="form-group">
             <div class="col-xs-12">
               <button type="submit" class="btn btn-primary">Login</button>
-              <a class="pull-right" href="{{{ action('UsersController@showAddUserForm') }}}">Don't have an account? Register Now!</a>
+              <a class="pull-right" href="{{{ route('get.users.register') }}}">Don't have an account? Register Now!</a>
             </div>
           </div>
           <div class="form-group">

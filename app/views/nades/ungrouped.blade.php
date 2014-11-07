@@ -45,7 +45,7 @@
                     <div class="panel-footer">
                         <small>
                             <div class="pull-right">
-                                <a href="{{ route('editNade', array('id' => $nade->id)) }}">Edit</a>
+                                <a href="{{ route('get.nades.edit', array('id' => $nade->id)) }}">Edit</a>
                             </div>
                             {{{ $nade->updated_at }}}
                         </small>
