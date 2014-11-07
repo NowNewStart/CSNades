@@ -101,13 +101,23 @@ class NadesController extends BaseController {
         return $map . " | " . $pop;
     }
 
-    public function showNadeForm()
+    public function showNadeForm(Nade $nade = null)
     {
+        $route = array('post.nades.add');
+
+        if (!$nade) {
+            $nade      = new Nade();
+            $nade->map = new Map();
+            $route     = array('post.nades.edit', $nade->id);
+        }
+
         $viewData = array(
-            'heading'   => 'Add a Nade',
-            // 'maps'      => Map::all()->sortBy('name'),
+            'heading'   => 'Add A Nade',
+            'mapList'   => Map::all()->sortBy('name')->lists('name', 'id'),
+            'nade'      => $nade,
             'nadeTypes' => Nade::getNadeTypes(),
             'popSpots'  => Nade::getPopSpots(),
+            'route'     => $route,
         );
 
         return View::make('nades.nade-form')->with($viewData);

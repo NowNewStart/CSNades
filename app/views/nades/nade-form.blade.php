@@ -1,26 +1,23 @@
 @extends('layouts.main')
 
 @section('content')
-        {{ Form::open(array('method' => 'post', 'action' => 'NadesController@saveNade', 'class' => 'form-horizontal')) }}
+        {{ Form::model($nade, array('route' => $route)) }}
             <div class="row">
                 <div class="col-xs-12 col-sm-4 col-sm-offset-2">
                     <div class="form-group {{ $errors->has('title') ? 'has-error' : '' }}">
-                        <label for="title" class="col-sm-12">Nade Title</label>
+                        {{ Form::label('title', 'Nade Title', array('class' => 'col-xs-12')) }}
                         <div class="col-sm-12">
-                            <input type="text" name="title" id="title" placeholder="Title" class="form-control" value="{{{ Input::old('title') }}}">
+                            {{ Form::text('title', null, array('class' => 'form-control', 'placeholder' => 'Title')) }}
                             {{ $errors->first('title', '<span class="help-block">:message</span>') }}
                         </div>
                     </div>
                 </div>
                 <div class="col-xs-12 col-sm-4">
                     <div class="form-group {{ $errors->has('map') ? 'has-error' : '' }}">
-                        <label for="map" class="col-sm-12">Map</label>
+                        <!-- <label for="map" class="col-sm-12">Map</label> -->
+                        {{ Form::label('map', 'Map', array('class' => 'col-xs-12')) }}
                         <div class="col-sm-12">
-                            <select name="map" id="map" class="form-control">
-                                @foreach ($maps as $map)
-                                <option value="{{{ $map->id }}}" {{{ Input::old('map') == $map->id ? "selected" : "" }}}>{{{ $map->name }}}</option>
-                                @endforeach
-                            </select>
+                            {{ Form::select('map', $mapList, $nade->map->id, array('class' => 'form-control')) }}
                             {{ $errors->first('map', '<span class="help-block">:message</span>') }}
                         </div>
                     </div>
@@ -29,39 +26,36 @@
             <div class="row">
                 <div class="col-xs-12 col-sm-4 col-sm-offset-2">
                     <div class="form-group {{{ $errors->has('pop_spot') ? 'has-error' : '' }}}">
-                        <label for="pop-spot" class="col-sm-12">Pop Spot</label>
+                        {{ Form::label('pop_spot', 'Pop Spot', array('class' => 'col-xs-12')) }}
                         <div class="col-sm-12">
-                            <select name="pop_spot" id="pop-spot" class="form-control">
-                                @foreach ($popSpots as $popSpot => $popName)
-                                <option value="{{{ $popSpot }}}" {{{ Input::old('pop_spot') == $popSpot ? "selected" : "" }}}>{{{ $popName }}}</option>
-                                @endforeach
-                            </select>
+                            {{ Form::select('pop_spot', $popSpots, $nade->pop_spot, array('class' => 'form-control')) }}
                             {{ $errors->first('pop_spot', '<span class="help-block">:message</span>') }}
                         </div>
                     </div>
                     <div class="form-group {{{ $errors->has('imgur_album') ? 'has-error' : '' }}}">
-                        <label for="imgur-album" class="col-sm-12">Imgur Link</label>
+                        {{ Form::label('imgur_album', 'Imgur Link', array('class' => 'col-xs-12')) }}
                         <div class="col-sm-12">
-                            <input type="text" name="imgur_album" id="imgur-album" placeholder="http://imgur.com/a/album" class="form-control" value="{{{ Input::old('imgur_album') }}}">
+                            {{ Form::text('imgur_album', null, array('class' => 'form-control', 'placeholder' => 'http://imgur.com/a/album')) }}
                             {{ $errors->first('imgur_album', '<span class="help-block">:message</span>') }}
                         </div>
                     </div>
                     <div class="form-group {{{ $errors->has('youtube') ? 'has-error' : '' }}}">
-                        <label for="youtube" class="col-sm-12">YouTube Link</label>
+                        {{ Form::label('youtube', 'YouTube Link', array('class' => 'col-xs-12')) }}
                         <div class="col-sm-12">
-                            <input type="text" name="youtube" id="youtube" placeholder="https://www.youtube.com/watch?v=video" class="form-control" value="{{{ Input::old('youtube') }}}">
+                            {{ Form::text('youtube', null, array('class' => 'form-control', 'placeholder' => 'https://www.youtube.com/watch?v=video')) }}
                             {{ $errors->first('youtube', '<span class="help-block">:message</span>') }}
                         </div>
                     </div>
                 </div>
                 <div class="col-xs-12 col-sm-4">
                     <div class="form-group {{{ $errors->has('type') ? 'has-error' : '' }}}">
-                        <label class="col-sm-12">Nade Type</label>
+                        <!-- <label class="col-sm-12">Nade Type</label> -->
+                        {{ Form::label('type', 'Nade Type', array('class' => 'col-xs-12')) }}
                         <div class="col-xs-12">
                             @foreach (Nade::getNadeTypes() as $nadeTypeKey => $nadeType)
                             <div class="radio">
                                 <label>
-                                    <input type="radio" name="type" value="{{{ $nadeTypeKey }}}" {{{ Input::old('type') == $nadeTypeKey ? "checked" : "" }}}>
+                                    {{ Form::radio('type', $nadeTypeKey) }}
                                         <i class="{{{ $nadeType['class'] }}}" title="{{{ $nadeType['label'] }}}"></i> {{{ $nadeType['label'] }}}
                                 </label>
                             </div>
@@ -70,9 +64,9 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="tags" class="col-sm-12">Tags</label>
+                        {{ Form::label('tags', 'Tags', array('class' => 'col-xs-12')) }}
                         <div class="col-sm-12">
-                            <textarea rows="2" name="tags" id="tags" placeholder="double stack, car, garage" class="form-control">{{{ Input::old('tags') }}}</textarea>
+                            {{ Form::textarea('tags', null, array('class' => 'form-control', 'placeholder' => 'double stack, car, garage', 'rows' => 2)) }}
                         </div>
                     </div>
                 </div>
@@ -83,7 +77,7 @@
                         <div class="col-xs-12">
                             <div class="checkbox">
                                 <label>
-                                    <input type="checkbox" name="is_working" value="1" checked="checked">
+                                    {{ Form::checkbox('is_working', true, true) }}
                                         Nade is currently working
                                 </label>
                             </div>
@@ -94,7 +88,7 @@
                         <div class="col-xs-12">
                             <div class="checkbox">
                                 <label>
-                                    <input type="checkbox" name="is_approved" value="1" checked="checked">
+                                    {{ Form::checkbox('is_approved', true, true) }}
                                         Nade is approved
                                 </label>
                             </div>
