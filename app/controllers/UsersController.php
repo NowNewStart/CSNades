@@ -18,7 +18,7 @@ class UsersController extends BaseController {
 
         if (!$user->save()) {
             $flashDanger = 'There were some errors with your registration.';
-            return Redirect::action('UsersController@showAddUserForm')
+            return Redirect::route('get.users.register')
                                     ->withFlashDanger($flashDanger)
                                     ->withErrors($user->getValidator())
                                     ->withInput();
@@ -30,7 +30,7 @@ class UsersController extends BaseController {
 
         if (!$confirmation->save()) {
             $flashWarning = 'You have been registered, but there was an error. Please notify an Administrator.';
-            return Redirect::to('/')->withFlashDanger($flashWarning);
+            return Redirect::home()->withFlashDanger($flashWarning);
         }
 
         $viewData = array(
@@ -45,7 +45,7 @@ class UsersController extends BaseController {
         });
 
         $flashSuccess = 'You have been registered. Please check your email to verify your account.';
-        return Redirect::to('/')->withFlashSuccess($flashSuccess);
+        return Redirect::home()->withFlashSuccess($flashSuccess);
     }
 
     public function attemptLogin()
@@ -70,7 +70,7 @@ class UsersController extends BaseController {
         );
 
         $flashDanger = 'Invalid username and password.';
-        return Redirect::action('UsersController@showLoginForm')->withFlashDanger($flashDanger);
+        return Redirect::route('get.users.login')->withFlashDanger($flashDanger);
     }
 
     public function confirmUser($code)
@@ -79,7 +79,7 @@ class UsersController extends BaseController {
             $confirmation = Confirmation::where('code', $code)->firstOrFail();
         } catch (ModelNotFoundException $e) {
             $flashDanger = 'The provided confirmation code was not found.';
-            return Redirect::to('/')->withFlashDanger($flashDanger);
+            return Redirect::home()->withFlashDanger($flashDanger);
         }
 
         $user = $confirmation->user;
@@ -87,11 +87,11 @@ class UsersController extends BaseController {
 
         if (!$user->save() || !$confirmation->delete()) {
             $flashDanger = 'There was an error confirming your account. Please contact support.';
-            return Redirect::to('/')->withFlashDanger($flashDanger);
+            return Redirect::home()->withFlashDanger($flashDanger);
         }
 
         $flashSuccess = 'Your account is confirmed! You may proceed to login.';
-        return Redirect::action('UsersController@showLoginForm')->withFlashSuccess($flashSuccess);
+        return Redirect::route('get.users.login')->withFlashSuccess($flashSuccess);
     }
 
     public function logout()
@@ -99,7 +99,7 @@ class UsersController extends BaseController {
         Auth::logout();
 
         $flashInfo = 'You have been logged out.';
-        return Redirect::action('UsersController@showLoginForm')->withFlashInfo($flashInfo);
+        return Redirect::route('get.users.login')->withFlashInfo($flashInfo);
     }
 
     public function showAddUserForm()
