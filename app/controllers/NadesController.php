@@ -9,12 +9,13 @@ class NadesController extends BaseController {
         //
     }
 
-    public function saveNade($id = null)
+    public function saveNade(Nade $nade = null)
     {
-        if ($id) {
-            $nade = Nade::find($id);
-        } else {
+        if (!$nade) {
             $nade = new Nade();
+            $route = Redirect::route('get.nades.add');
+        } else {
+            $route = Redirect::route('get.nades.edit', $nade->id);
         }
 
         $map  = Map::find(Input::get('map'));
@@ -31,35 +32,22 @@ class NadesController extends BaseController {
         $nade->tags        = Input::get('tags');
         $nade->is_working  = Input::get('is_working');
 
-        if (Auth::user()->is_mod && Input::get('is_approved')) {
-            $nade->approved_by()->associate(Auth::user());
-            $nade->approved_at = $nade->freshTimestamp();
+        if ($user->is_mod)
+        {
+            if (Input::get('is_approved')) {
+                $nade->approve($user);
+            } else {
+                $nade->unapprove();
+            }
         }
-
-        // if ($nade->save()) {
-        //     Session::flash('flashSuccess', 'The nade has been saved!');
-        //     Redirect::action('NadesController@showNadeForm');
-        // }
         
         if (!$nade->save()) {
-            return Redirect::action('NadesController@showNadeForm')
-                    ->withFlashDanger('There were some problems with your nade.')
-                    ->withErrors($nade->getValidator())
-                    ->withInput();
+            return $route->withFlashDanger('There were some problems with your nade.')
+                         ->withErrors($nade->getValidator())
+                         ->withInput();
         }
 
-        $viewData = array(
-            'heading'   => 'Add a Nade',
-            // 'maps'      => Map::all()->sortBy('name'),
-            'nadeTypes' => Nade::getNadeTypes(),
-            'popSpots'  => Nade::getPopSpots(),
-        );
-
-        return Redirect::action('NadesController@showNadeForm')
-                ->withFlashSuccess('Your nade has been saved.');
-
-        // Session::flash('flashError', 'The nade was not saved!');
-        // return View::make('nades.nade-form')->with($viewData);
+        return $route->withFlashSuccess('Your nade has been saved.');
     }
 
     public function deleteNade()
@@ -103,12 +91,17 @@ class NadesController extends BaseController {
 
     public function showNadeForm(Nade $nade = null)
     {
-        $route = array('post.nades.add');
+        if ($nade) {
+            $route = array('post.nades.edit', $nade->id);
+            $nade->is_approved = false;
 
-        if (!$nade) {
+            if ($nade->isApproved()) {
+                $nade->is_approved = true;
+            }
+        } else {
             $nade      = new Nade();
             $nade->map = new Map();
-            $route     = array('post.nades.edit', $nade->id);
+            $route     = array('post.nades.add');
         }
 
         $viewData = array(

@@ -1,7 +1,10 @@
 <?php
 
+use \Carbon\Carbon;
+
 class Nade extends BaseModel {
 
+    protected $dates = array('approved_at');
     protected $table = 'nades';
 
     protected $fillable = array(
@@ -47,6 +50,16 @@ class Nade extends BaseModel {
         $this->setNadeValidation();
     }
 
+    public function approve(User $user)
+    {
+        if (!$this->isApproved()) {
+            $this->approved_by()->associate($user);
+            $this->approved_at = $this->freshTimestamp();
+        }
+
+        return $this;
+    }
+
     public static function getNadeTypes()
     {
         return self::$nadeTypes;
@@ -77,6 +90,17 @@ class Nade extends BaseModel {
         return array_keys(self::$popSpots);
     }
 
+    public function isApproved()
+    {
+        $emptyDate = new Carbon('0000-00-00 00:00:00');
+
+        if (!$this->approved_at || $emptyDate->gte($this->approved_at)) {
+            return false;
+        }
+
+        return true;
+    }
+
     public function approved_by()
     {
         return $this->belongsTo('User', 'approved_by');
@@ -102,5 +126,13 @@ class Nade extends BaseModel {
              ->setRule('is_approved', 'boolean')
              ->setRule('maps', 'exists:maps')
              ->setRule('type', 'required|in:' . implode(',', $this->getNadeTypeKeys()));
+    }
+
+    public function unapprove()
+    {
+        $this->approved_by()->dissociate();
+        $this->approved_at = Carbon::create(0);
+
+        return $this;
     }
 }
