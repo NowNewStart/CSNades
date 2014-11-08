@@ -201,8 +201,8 @@
                 </p>
                 <p>
                     <ul>
-                        <li><a href="http://steamcommunity.com/id/fatboyxpc">FatBoyXPC</a> - Back-end</li>
                         <li><a href="http://steamcommunity.com/id/Jung3o">Jung3o</a> - Front-end</li>
+                        <li><a href="http://steamcommunity.com/id/fatboyxpc">FatBoyXPC</a> - Back-end</li>
                         <li><a href="http://steamcommunity.com/id/imnns/">NowNewStart</a> - Initial working concept</li>
                     </ul>
                 </p>
