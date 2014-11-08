@@ -56,7 +56,7 @@
                               <a href="#" title="Search"><span class="visible-xs">Search</span><span class="hidden-xs glyphicon glyphicon-search"></span></a>
                             </li>
                             <li>
-                              <a href="http://steamcommunity.com/tradeoffer/new/?partner=77337443&token=LHJlb5mV" title="Donate"><span class="visible-xs">Donate</span> <span class="hidden-xs glyphicon glyphicon-heart"></span></a>
+                              <a href="{{ route('get.donations') }}" title="Donations"><span class="visible-xs">Donations</span> <span class="hidden-xs glyphicon glyphicon-heart"></span></a>
                             </li>
                             @if ($user)
                             <li class="dropdown hidden-xs">
