@@ -15,7 +15,7 @@ a {
   -moz-transition: color 0.5s;
   -webkit-transition: color 0.5s;
   -o-transition: color 0.5s;
-  color: #ccc;
+  color: #92BCE0;
 }
 
 a:focus {
@@ -24,7 +24,7 @@ a:focus {
 
 a:hover,
 a:focus {
-  color: #fff;
+  color: #bad4eb;
 }
 
 #wrap {
@@ -70,6 +70,12 @@ footer a:focus {
   box-shadow: 0 0 0;
   border: 1px solid rgba(255, 255, 255, .1);
   border-radius: 0;
+  color: #eee;
+}
+
+.modal-header,
+.modal-footer {
+  border-color: rgba(255, 255, 255, .1);
 }
 
 .center-block {
@@ -429,11 +435,6 @@ textarea.form-control {
   color: #e3e3e3;
 }
 
-.csnews-item .csnews-footer a,
-.csnews-item .csnews-content a {
-  color: #92BCE0;
-}
-
 .csnews-item .csnews-footer {
   padding-top: 5px;
   font-size: 12px;
@@ -495,6 +496,10 @@ textarea.form-control {
   margin-bottom: 5px;
 }
 
+.csnade-list li a {
+  color: #ccc;
+}
+
 .csnade-list li i {
   width: 26px;
   margin-right: 5px;
@@ -532,10 +537,6 @@ textarea.form-control {
   height: 41px;
 }
 
-.map-display .panel .panel-footer a {
-  color: #92BCE0;
-}
-
 .map-display .panel .panel-heading,
 .map-display .panel .panel-footer {
   background: rgba(59, 67, 77, 0.8);
@@ -554,7 +555,6 @@ textarea.form-control {
 }
 
 .map-display .panel .author a {
-  color: #92BCE0;
   font-weight: 700;
 }
 

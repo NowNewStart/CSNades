@@ -195,21 +195,23 @@
                 <h4 class="modal-title" id="meinModalLabel">About</h4>
             </div>
             <div class="modal-body">
-                The <em>Counter-Strike: Global Offensive Nades and Smoke</em> Website is mainly made by <a href="http://steamcommunity.com/id/imnns/">NowNewStart</a>, <a href="http://steamcommunity.com/id/fatboyxpc">FatBoyXPC</a> and contributors.<br>
-                <br>
-                <strong>Staff members who are helping to have all smokes in the system:</strong>
-                <br>
-                <a href="http://steamcommunity.com/id/imnns/">NowNewStart</a>
-                <br>
-                <a href="http://steamcommunity.com/id/fatboyxpc">FatBoyXPC</a>
-                <br>
-                <a href="http://steamcommunity.com/profiles/76561198071213385/">falc0n</a>
-                <br>
-                <br>
-                <strong>Idea by <a href="http://reddit.com/u/gas4u">Gas4U</a></strong>
-                <br>
-                <br>
-                <a href="http://blog.counter-strike.net"><em>Counter-Strike: Global Offensive</em></a> is made by Valve and Hidden Path Entertainment.
+                <p>
+                    Re-developed/designed by <a href="http://steamcommunity.com/id/fatboyxpc">FatBoyXPC</a> and <a href="http://steamcommunity.com/id/Jung3o">Jung3o</a>.<br>
+                    Initially created by <a href="http://steamcommunity.com/id/imnns/">NowNewStart</a>.
+                </p>
+                <p>
+                    <ul>
+                        <li><a href="http://steamcommunity.com/id/fatboyxpc">FatBoyXPC</a> - Back-end</li>
+                        <li><a href="http://steamcommunity.com/id/Jung3o">Jung3o</a> - Front-end</li>
+                        <li><a href="http://steamcommunity.com/id/imnns/">NowNewStart</a> - Initial working concept</li>
+                    </ul>
+                </p>
+                <p>
+                    Please send suggestions &amp; problems to <a href="mailto:support@csnades.com">support@csnades.com</a>.
+                </p>
+                <p>
+                    <a href="{{ route('get.features') }}">List of planned features</a>
+                </p>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
