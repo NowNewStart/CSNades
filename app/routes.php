@@ -18,8 +18,10 @@ Route::bind('map', function($value, $route) {
     return Map::where('slug', $value)->first();
 });
 
+// Home
 Route::get('/', array('as' => 'home', 'uses' => 'HomeController@getIndex'));
 Route::get('features', array('as' => 'get.features', 'uses' => 'HomeController@showFeatures'));
+Route::get('donations', array('as' => 'get.donations', 'uses' => 'HomeController@showDonations'));
 
 // Route::get('env', function(){
 //     return App::environment();

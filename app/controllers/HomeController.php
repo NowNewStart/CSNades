@@ -38,6 +38,14 @@ class HomeController extends BaseController {
         return View::make('home.home')->with($viewData);
     }
 
+    public function showDonations()
+    {
+        $viewData = array(
+            'heading' => 'Donations',
+        );
+        return View::make('home.donations')->with($viewData);
+    }
+
     public function showFeatures()
     {
         $endpoint = "https://gitlab.com/api/v3/projects/104982/issues?labels=Feature&state=opened";
