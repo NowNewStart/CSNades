@@ -50,7 +50,7 @@ Route::group(array('before' => 'auth'), function() {
     Route::post('nades/add', array('as' => 'post.nades.add', 'before' => 'csrf', 'uses' => 'NadesController@saveNade'));
     
     // Users
-    Route::get('profile', array('as' => 'get.users.profile', 'uses' => 'UsersController@showProfile'));
+    // Route::get('profile', array('as' => 'get.users.profile', 'uses' => 'UsersController@showProfile'));
 
 
 
