@@ -1,8 +1,8 @@
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Welcome, {{{ Auth::user()->username}}}! <span class="caret"></span></a>
                 <ul class="dropdown-menu" role="menu">
-                  <li>
+                  <!-- <li>
                     <a href="{{{ route('get.users.profile') }}}" title="Profile">Profile</a>
-                  </li>
+                  </li> -->
                   @if ($user->is_admin)
                   <li>
                       <a href="{{{ route('get.maps.add') }}}">Add Map</a>
