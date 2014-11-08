@@ -37,7 +37,7 @@ Route::get('maps', array('as' => 'get.maps.all', 'uses' => 'MapsController@showA
 
 // Users
 Route::get('login', array('as' => 'get.users.login', 'uses' => 'UsersController@showLoginForm'));
-Route::post('login', array('as' => 'post.users.login', 'uses' => 'UsersController@attemptLogin'));
+Route::post('login', array('as' => 'post.users.login', 'before' => 'csrf', 'uses' => 'UsersController@attemptLogin'));
 Route::get('logout', array('as' => 'get.users.logout', 'uses' => 'UsersController@logout'));
 Route::get('register', array('as' => 'get.users.register', 'uses' => 'UsersController@showAddUserForm'));
 Route::post('register', array('as' => 'post.users.register', 'before' => 'csrf', 'uses' => 'UsersController@addUser'));
