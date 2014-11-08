@@ -8,7 +8,7 @@
                     <div class="csnews-title">Public Beta Launch</div>
                     <div class="csnews-date">
                         <div class="csnews-month">nov</div>
-                        <div class="csnews-day">05</div>
+                        <div class="csnews-day">08</div>
                     </div>
                     <div class="csnews-content">
                         We made it, the public beta is finally here! Feel free to start browsing, or create an account and add some nades. Since the site is still in beta, you will likely notice some features that do not work. This is normal, but rest assured that the website is being worked on daily with the intention of getting all the core parts of the site finished first. You can find a full list of requested features <a href="{{ route('get.features') }}">here</a>, or on the page footer.
