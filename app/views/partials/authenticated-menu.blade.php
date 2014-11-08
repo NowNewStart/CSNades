@@ -4,12 +4,12 @@
                   <!-- <li>
                     <a href="{{{ route('get.users.profile') }}}" title="Profile">Profile</a>
                   </li> -->
-                  --}}
                   @if ($user->is_admin)
-                  <li>
+                  <!-- <li>
                       <a href="{{{ route('get.maps.add') }}}">Add Map</a>
-                  </li>
+                  </li> -->
                   @endif
+                  --}}
                   @if ($user->is_mod)
                   <li>
                       <a href="{{{ route('get.nades.unapproved') }}}">Unapproved Nades</a>
