@@ -44,9 +44,11 @@
                     </div>
                     <div class="panel-footer">
                         <small>
+                            @if (Auth::user() && Auth::user()->is_mod)
                             <div class="pull-right">
                                 <a href="{{ route('get.nades.edit', array('id' => $nade->id)) }}">Edit</a>
                             </div>
+                            @endif
                             {{{ $nade->updated_at }}}
                         </small>
                     </div>
