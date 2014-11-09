@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="row">
-        <div class="col-xs-5 center-block text-center">
+        <div class="col-sm-5 col-xs-12 center-block text-center">
             <p>
                 CSNades was created as a hobby for the Counter-Strike community and it takes time to develop as well as money to host the website.
             </p>
