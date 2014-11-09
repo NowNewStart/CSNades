@@ -22,7 +22,10 @@ class NadesController extends BaseController {
         $user = Auth::user();
 
         $nade->map()->associate($map);
-        $nade->user()->associate($user);
+
+        if (!$nade->user_id) {
+            $nade->user()->associate($user);
+        }
 
         $nade->type        = Input::get('type');
         $nade->pop_spot    = Input::get('pop_spot');
