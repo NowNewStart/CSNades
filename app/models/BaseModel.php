@@ -11,8 +11,8 @@ class BaseModel extends Eloquent {
     {
         parent::boot();
 
-        static::saving(function($user) {
-            return $user->isValid();
+        static::saving(function($model) {
+            return $model->isValid();
         });
     }
 
