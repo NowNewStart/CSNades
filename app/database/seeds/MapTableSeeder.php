@@ -11,12 +11,10 @@ class MapTableSeeder extends Seeder {
             'Nuke'        => 'http://i.imgur.com/rAilbaT.jpg',
             'Inferno'     => 'http://i.imgur.com/PqhA3om.png',
             'Cache'       => 'http://i.imgur.com/Im0kNDY.png',
-            'Old Season'  => 'http://i.imgur.com/zqaGDDe.jpg',
-            'New Season'  => 'http://i.imgur.com/J3PEqqF.jpg',
+            'Season'      => 'http://i.imgur.com/J3PEqqF.jpg',
             'Mirage'      => 'http://i.imgur.com/0VrFWc1.png',
             'Cobblestone' => 'http://i.imgur.com/jGOhgDq.png',
             'Overpass'    => 'http://i.imgur.com/nZBVBLR.png',
-            'Sparity'     => 'http://i.imgur.com/oIOMBpt.jpg',
         );
 
         foreach ($maps as $key => $value) {
