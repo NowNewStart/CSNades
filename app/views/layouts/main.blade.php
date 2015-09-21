@@ -80,7 +80,7 @@
             <div class="row">
                 <div class="col-xs-12">
                     <div class="alert alert-warning">
-                        CSNades is still in <strong>BETA!</strong> <span class="hidden-xs">Please be patient while we finish adding features!</span>
+                        CSNades is now Open-Source. <a href="http://github.com/csnades/website">You are able to contribute here</a> if you want! :)</span>
                     </div>
                 </div>
                 @if(Session::has('flash_danger'))
