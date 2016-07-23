@@ -15,6 +15,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::get('/login', 'AuthController@login');
+Route::get('/about', 'HomeController@about');
+Route::get('/features', 'HomeController@features');
 Route::get('/logout', 'AuthController@logout');
 
 Route::group(['middleware' => 'App\Http\Middleware\AdminMiddleware'], function () {
@@ -32,9 +34,9 @@ Route::group(['middleware' => 'App\Http\Middleware\AdminMiddleware'], function (
 
 	//Admin Routes for User Control
 	Route::get('/admin/users', 'AdminController@usersView');
-	Route::get('/admin/users/ban/{steamid}','AdminController@banUser');
 
-	Route::post('/admin/users/group/{steamid}','AdminController@groupUser');
+	Route::post('/admin/users/ban','AdminController@banUser');
+	Route::post('/admin/users/group','AdminController@groupUser');
 });
 
 Route::group(['middleware' => 'auth'], function () {

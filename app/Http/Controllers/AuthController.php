@@ -32,6 +32,10 @@ class AuthController extends Controller
                         'type'     => 'U'
                     ]);
                 }
+                if(User::where('steamid',$info->getSteamID64())->first()->type == "B") {
+                    Session::flash('flash_danger', 'You are banned on CSNades.');
+                    return redirect('/');
+                }
                 Auth::login($user, true);
                 Session::flash('flash_success', 'You are now signed in. Have fun!');
                 return redirect('/'); // redirect to site

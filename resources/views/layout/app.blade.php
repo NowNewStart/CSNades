@@ -58,8 +58,9 @@
                                     <li>
                                         <a href="/admin">Admin Panel</a>
                                     </li>
-                                    @endif
+                                   
                                     <li role="separator" class="divider"></li>                              
+                                    @endif
                                     <li>
                                         <a href="/logout">Logout</a>
                                     </li>        
