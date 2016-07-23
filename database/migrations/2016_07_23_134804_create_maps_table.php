@@ -17,6 +17,7 @@ class CreateMapsTable extends Migration
             $table->string('map');
             $table->string('slug');
             $table->string('url');
+            $table->boolean('active');
             $table->timestamps();
         });
     }

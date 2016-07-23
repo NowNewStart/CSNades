@@ -7,7 +7,7 @@
     		<legend>Map list</legend>
 
     		@foreach($maps as $map)
-				<a  href="/admin/maps/change/{{ $map->slug }}" class="list-group-item">{{ $map->map }} </a>
+				<a  href="/admin/maps/{{ $map->slug }}" class="list-group-item">{{ $map->map }} </a>
     		@endforeach
     	</div>  	
     </div>

@@ -19,12 +19,22 @@ Route::get('/logout', 'AuthController@logout');
 
 Route::group(['middleware' => 'App\Http\Middleware\AdminMiddleware'], function () {
 	Route::get('/admin', 'AdminController@home');
-	Route::get('/admin/maps', 'AdminController@maps_view');
-	Route::get('/admin/users', 'AdminController@users_view');
 
-	Route::post('admin/users/change', 'AdminController@users');
+	//Admin Routes for Map Control
+	Route::get('/admin/maps', 'AdminController@mapsView');
+	Route::get('/admin/maps/{map}','AdminController@changeMapView');
+	Route::get('/admin/maps/{map}/delete', 'AdminController@deleteMap');
+	Route::get('/admin/maps/{map}/deactivate','AdminController@deactivateMap');
+	Route::get('/admin/maps/{map}/delnades','AdminController@deleteNadesOnMap');
+
 	Route::post('/admin/maps/add', 'AdminController@addMap');
+	Route::post('admin/maps/{map}/info', 'AdminController@changeMap');
 
+	//Admin Routes for User Control
+	Route::get('/admin/users', 'AdminController@usersView');
+	Route::get('/admin/users/ban/{steamid}','AdminController@banUser');
+
+	Route::post('/admin/users/group/{steamid}','AdminController@groupUser');
 });
 
 Route::group(['middleware' => 'auth'], function () {
