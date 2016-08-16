@@ -11,19 +11,19 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'HomeController@welcome');
 Route::get('/login', 'AuthController@login');
 Route::get('/about', 'HomeController@about');
 Route::get('/features', 'HomeController@features');
 Route::get('/logout', 'AuthController@logout');
+Route::get('/map/{map}','NadesController@showNades');
 
 Route::group(['middleware' => 'App\Http\Middleware\AdminMiddleware'], function () {
 	Route::get('/admin', 'AdminController@home');
 
 	//Admin Routes for Map Control
 	Route::get('/admin/maps', 'AdminController@mapsView');
+	Route::get('/admin/maps/addclassic', 'AdminController@addClassicMaps');
 	Route::get('/admin/maps/{map}','AdminController@changeMapView');
 	Route::get('/admin/maps/{map}/delete', 'AdminController@deleteMap');
 	Route::get('/admin/maps/{map}/deactivate','AdminController@deactivateMap');
@@ -37,8 +37,22 @@ Route::group(['middleware' => 'App\Http\Middleware\AdminMiddleware'], function (
 
 	Route::post('/admin/users/ban','AdminController@banUser');
 	Route::post('/admin/users/group','AdminController@groupUser');
+
+	//Routes for Nades
+	Route::get('/approve','AdminController@approveNadesView');
+	Route::get('/approve/{id}','AdminController@editNadesView');
+	Route::get('/approve/{id}/delete', 'AdminController@deleteNade');
+	Route::get('/approve/{id}/confirm', 'AdminController@approveNade');
+
+	
+	Route::post('/approve/{id}/edit', 'AdminController@editNade');
+
+
 });
 
 Route::group(['middleware' => 'auth'], function () {
 	Route::get('/home', 'HomeController@home');
+	Route::get('/add', 'NadesController@addNadeView');
+	Route::post('/add/perform', 'NadesController@addNade');
+
 });

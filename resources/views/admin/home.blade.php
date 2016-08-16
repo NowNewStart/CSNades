@@ -11,6 +11,8 @@
 			<div class="list-group">
 				<a class="list-group-item" href="/admin/maps">Manage Maps</a>
 				<a class="list-group-item" href="/admin/users">Manage Users</a>
+				<a class="list-group-item" href="/admin/maps/addclassic">Add all general comp maps</a>
+				<a class="list-group-item" href="/approve" style="background-color: #DEFEC8">Approve nades</a>
 			</div>	
 		</div>
 

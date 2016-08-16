@@ -10,6 +10,7 @@
   <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
   <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" type="text/css" href="{{ URL::asset("css/global.css") }}">
+  <meta name="csrf-token" content="{{ csrf_token() }}" />
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
   <!--[if lt IE 9]>
@@ -31,7 +32,7 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <a class="navbar-brand" href="#">CSNades
+                        <a class="navbar-brand" href="/">CSNades
                             <span class="label label-primary">BETA</span>
                         </a>
                     </div>
@@ -39,7 +40,7 @@
                         <ul class="nav navbar-nav">
                            @if(Auth::check())
                             <li>
-                                <a href="#">Add Nade</a>
+                                <a href="/add">Add Nade</a>
                             </li>
                             @endif
                         </ul>
@@ -127,13 +128,13 @@
             </div>
         </div>
     </div>
-    <footer class="footer">
+    <footer class="footer hidden-sm">
             <ul class="list-inline">
                 <li>
-                    <a href="#"  data-toggle="modal" data-target="#about"> About</a>
+                    <a href="#"  data-toggle="modal" data-target="#about" class="hidden-sm"> About</a>
                 </li>
                 <li>
-                    <a href="#" > Features</a>
+                    <a href="#" class="hidden-sm"> Features</a>
                 </li>
             </ul>
     </footer>

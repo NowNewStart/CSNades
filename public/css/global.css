@@ -1,3 +1,6 @@
+html,body{
+    height: 100%
+}
 .footer {
   position: absolute;
   bottom: 0;
@@ -12,4 +15,131 @@
 }
 .footer li {
   padding-right: 50px;
+}
+.map-picker:not(:nth-child(0)) {
+  margin-top: 10px;
+}
+
+.map-picker .row > div {
+  padding-bottom: 30px;
+}
+
+.map-picker .row > div > .map-list {
+  display: block;
+  position: relative;
+  height: 150px;
+  
+  cursor: pointer;
+  background-repeat: no-repeat;
+  text-decoration: none;
+}
+
+@media (max-width: 992px) {
+  .map-picker .row > div > .map-list {
+    background-position: center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+  }
+}
+
+.map-picker .row > div > .map-list:before {
+  content: '';
+  z-index: 0;
+  display: block;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background: rgba(51, 51, 51, 0.6);
+}
+
+.map-picker .row > div > .map-list:hover:before {
+  background: rgba(51, 51, 51, 0.2);
+}
+
+.map-list > .map-title {
+  position: relative;
+  z-index: 2;
+  color: #fff;
+  font-size: 2em;
+  font-weight: 600;
+  padding-left: 10px;
+}
+
+.map-list > .map-info {
+  position: relative;
+  z-index: 2;
+  color: #fff;
+  list-style: none;
+  text-align: center;
+  padding: 0;
+  margin: 20px 0 0;
+}
+
+.map-list > .map-info > li {
+  display: inline-block;
+  font-size: 1.2em;
+  padding: 10px;
+}
+.map-display .tutorial a:before {
+    content: '';
+    display: inline-block;
+    vertical-align: middle;
+    height: 100%;
+}
+
+.map-display .tutorial a {
+  padding: 10px 0;
+  height: 84px;
+}
+
+.map-display .tutorial a:hover {
+  text-decoration: none;
+  background: rgba(255, 255, 255, .05);
+}
+
+.map-display .tutorial img {
+  max-height: 64px;
+  max-width: 64px;
+  display: inline-block;
+  vertical-align: middle;
+}
+.map-display .tags {
+  max-height: 52px;
+  overflow: hidden;
+  text-align: center;
+  margin: 8px 0 12px;
+}
+
+.map-display .tags .label {
+  display: inline-block;
+  background: rgba(66, 139, 202, .4);
+  border-radius: 1px;
+  padding: 4px 5px;
+  font-weight: 400;
+  margin-right: 5px;
+  margin-bottom: 5px;
+}
+
+.map-display .tags span i {
+  vertical-align: -1px;
+  margin-right: 5px;
+}
+.yt {
+   width: 100px; 
+   height: auto; 
+   display: inline-block; 
+   padding-bottom: 75px;
+}
+.gfy {
+  padding-bottom: 81px;
+}
+.imgurfirst {
+  padding-bottom: 76px;
+}
+.imgur {
+  padding-bottom: 76px;
 }

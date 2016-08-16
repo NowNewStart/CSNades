@@ -17,4 +17,8 @@ class User extends Authenticatable
      *
      * @var array
      */
+    
+    public function nades() {
+        return $this->hasMany('App\Nade');
+    }
 }
